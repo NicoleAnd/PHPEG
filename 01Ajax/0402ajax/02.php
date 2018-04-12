@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+    <?php
+//    for($i=0;$i<100;$i++){
+//        if ($i%5 == 0){
+//            echo "<p><input type='radio' /></p>";
+//        } else {
+//            echo "<p></p><input type='text' /></p>";
+//        }
+//
+//    }
+    ?>
+
+    <?php
+        for($i=0;$i<100;$i++){
+    ?>
+    <p><input type="<?php if ($i%5==0){echo 'radio';}else{echo 'text';}?>" /></p>
+    <?php } ?>
+</body>
+</html>

@@ -9,11 +9,11 @@
     <input type="button" id="btn" name="btn" value="按我异步读取文件">
 
     <script type="text/javascript">
-        // 找到相关元素
+        // 找到相关元素 
         var content = document.getElementById("content");
         var btn = document.getElementById("btn");
 
-        // 事件监听
+        // 事件监听  A --秘书xhr-- B
         btn.onclick = function(){
             // 发起ajax请求
             // 1 创建xhr对象

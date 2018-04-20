@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<p>
+		用户名：
+		<input type="text" name="userName" id="userName">
+	</p>
+	
+	<script type="text/javascript">
+		// 找到相关元素
+		var userName = document.getElementById("userName");
+
+		// 绑定事件
+		userName.onblur = function(){
+			// 获取表单值
+			var name = userName.value;
+
+			// ajax模板
+			// 1 创建对象 兼容性问题
+			var xhr;
+	     	if(window.XMLHttpRequest) {
+	     		xhr = new XMLHttpRequest();
+	     	} else {
+	     		xhr = new ActiveXObject("Microsoft.XMLHTTP");
+	     	}
+			
+			// 2 绑定事件
+			xhr.onreadystatechange = function() {
+	     		 if(xhr.readyState == 4) {
+	     		 	 console.log(xhr.responseText);
+				}
+			}
+			// 3 配置请求
+			xhr.open("get","php/check.php?name="+name,true);
+			// 4 发送请求
+	     	xhr.send(null);
+		}
+
+	</script>
+</body>
+</html>

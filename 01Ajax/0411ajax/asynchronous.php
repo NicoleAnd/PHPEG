@@ -14,13 +14,7 @@
         //事件监听
         btn.onclick = function(){
 
-            // var xhr = new XMLHttpRequest();
-            var xhr;
-            if (window.XMLHttpRequest) {
-                xhr = new XMLHttpRequest(); //IE7+ Moxillla
-            }else{
-                xhr = new ActiveXObject("Microsoft.XMLHTTP"); //IE6-
-            }
+            var xhr = new XMLHttpRequest();
 
             xhr.onreadystatechange = function(){
                 if (xhr.readyState == 4) {

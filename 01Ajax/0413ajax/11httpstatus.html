@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h2 id="content">***************</h2>
+	<input type="button" id="btn" value="点我异步获取文件" />
+
+	<script type="text/javascript">
+		// 找到元素
+		var content = document.getElementById("content");
+		var btn = document.getElementById("btn");
+
+		// 绑定事件
+		btn.onclick = function(){
+			var xhr;
+			if (window.XMLHttpRequest) {
+				xhr = new XMLHttpRequest();
+			}else{
+				xhr = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+
+			// 2 绑定事件
+			xhr.onreadystatechange = function(){
+				if (xhr.readyState == 4) {
+					if (xhr.status>=200&&xhr.status<300 || xhr.status==304) {
+						content.innerHTML = xhr.responseText;
+					}else{
+						content.innerHTML = "服务器有错，稍后再试";
+					}
+				}
+			}
+			xhr.open("get","php/1.txt",true);
+			xhr.send(null);
+		}
+	</script>
+</body>
+</html>

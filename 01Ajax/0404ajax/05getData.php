@@ -6,25 +6,26 @@
 </head>
 <body>
 	<?php
-		//获取用户GET请求的数据
+		// 获取用户GET请求的数据
 		$xuehao = $_GET["xuehao"];
 		$name = $_GET["name"];
 		$tel = $_GET["tel"];
 		$qq = $_GET["qq"];
 
-		//echo $xuehao.$name.$tel.$qq;
-		//创建连接
+		// echo $xuehao.$name.$tel.$qq;
+		// 创建一个连接
 		$con = mysql_connect("localhost","root","root");
-		mysql_select_db("study01",$con);
+		// 选择一个数据库
+		mysql_select_db("along",$con);
+		// 设置字符集
 		mysql_query("SET NAMES UTF8");
-		$result = mysql_query("INSERT INTO student(xuehao,name,tel,qq) VALUES ('{$xuehao}','{$name}','{$tel}','{$qq}')");
-		echo $result;
-		if ($result == 1) {
-			echo "数据插入成功";
-		}else{
-			echo "数据错误，请联系管理员";
-		}
+		// 执行SQL语句
+		
+		$result = mysql_query("INSERT INTO student(xuehao,name,tel,qq) VALUES ('{$xuehao}','{$name}','{$tel}','{$qq}') ");
+
+		// 关闭数据库
 		mysql_close();
 	?>
+
 </body>
 </html>

@@ -1,0 +1,16 @@
+{
+	"result":[
+		{
+			"name":"along",
+			"age":28
+		},
+		{
+			"name":"xiaoli",
+			"age":23
+		},
+		{
+			"name":"tom",
+			"age":25
+		}
+	]
+}

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript" src="js/myajaxget.js"></script>
+	<script type="text/javascript">
+		myajax.get("php/do.php",{"name":"along","age":18},
+			function(err,data){
+				if (err) {
+					alert("抱歉，服务器有错");
+					return;
+				}
+				alert(data);
+			});
+	</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script type="text/javascript" src="js/jquery-1.12.1.min.js"></script>
+	<script type="text/javascript">
+	   // XMLHttpRequest cannot load https://www.baidu.com/. No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'null' is therefore not allowed access.
+	   $.post("http://www.baidu.com/",function(data) {
+	   	    console.log(data);
+	   });
+	</script>
+</body>
+</html>

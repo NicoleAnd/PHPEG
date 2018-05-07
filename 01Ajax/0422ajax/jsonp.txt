@@ -1,0 +1,12 @@
+fn({
+	"data":[{
+		"name":"along",
+		"age":20
+	},{
+		"name":"zhangsan",
+		"age":18
+	},{
+		"name":"tom",
+		"age":22
+	}]
+});

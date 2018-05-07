@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+	
+	<script type="text/javascript">
+	   $(function() {
+	   	   alert(11);
+	   });
+       jsonp("jsonp.txt","fn",function(data) {
+              alert(data.data[1].age);
+       }); 
+
+	   function jsonp(URL,callbackname,callback) {
+	   	  // window对象增加一个属性
+	   	    window[callbackname] = callback;
+              // 创建script标签
+           var scriptObj = document.createElement("script");
+           //  追加script
+           document.body.appendChild(scriptObj);
+           scriptObj.src = URL;
+	   }
+	</script>
+</body>
+</html>

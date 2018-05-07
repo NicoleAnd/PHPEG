@@ -1,0 +1,53 @@
+原生ajax
+   var xhr = new XMLHttpRequest();
+   xhr.onreadystatechange = function() {
+       if(xhr.readyState==4) {
+           ....
+       }
+   }
+
+   xhr.open(mothod,url,true);
+   xhr.send();
+jQuery中的Ajax
+
+1 get()方法 
+
+    $.get("1.json",{"id":1,"name":"阿龙"},function(data) {
+                 //console.log(data);
+                 $("h1").html(data.content[0].name);
+              }); 
+
+    或者这样用
+             $.get("1.json?id=1&name=阿龙",function(data) {
+                 //console.log(data);
+                 $("h1").html(data.content[0].name);
+              });       	
+
+     jquery帮我们实现 1 encodeURIComponent()
+                      2 假如请求是404错误状态 回调函数不会执行
+                      3 jquery识别传回来的东西，帮我们转成json 
+2 post() 方法                               
+     $.post(url,{},function() {})
+
+3 ajax()方法
+   配置信息很多，要写在json
+
+4 serialize()方法
+    用于表单序列化 
+    form标签.serialize()
+
+  缓存
+  Ajax缓存现象很严重，假如两次get、post请求的URL是一样并且携带的参数也一样，即便服务器返回200状态码，也会被当做304那样有缓存
+
+  解决方案 1 随机数
+       xhr.open("get","a.txt?z="+Math.random(),true);
+       或
+        xhr.open("get","a.txt?"+Math.random(),true);
+
+        JQ $.get("a.txt",{"z":Math.random()})
+
+          2 时间戳
+              new Date()   Date.parse(new Date())
+              xhr.open("get","a.txt?"+Date.parse(new Date()),true);
+
+

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1></h1>
+	<input type="button" id="btn" value="点我">
+	<script type="text/javascript" src="js/jquery-1.12.1.min.js"></script>
+	<script type="text/javascript">
+         // 点击按钮之后发出ajax请求
+         $("#btn").click(function() {
+             /* $.get("1.json",{"id":1,"name":"阿龙"},function(data) {
+                 console.log(data);
+                 $("h1").html(data.content[0].name);
+              }); */
+              /*$.post("1.json",{"id":1,"name":"阿龙"},function(data) {
+                 console.log(data);
+                 $("h1").html(data.content[0].name);
+              });*/	
+
+              $.ajax("1.json",{
+              	  // 请求类型
+              	  "type":"get",
+              	  // 传到服务器的数据
+              	  "data": {
+              	  	 "name":"ali",
+              	  	 "age":18
+              	  },
+              	  "success":function(data) {
+                      alert(typeof data);
+              	  },
+              	  "error":function(XMLHttpRequest,textStatus,errorThrown) {
+                        console.log(XMLHttpRequest);
+                        console.log(textStatus);
+                        console.log(errorThrown);
+              	  }
+              });
+         });
+	</script>
+</body>
+</html>

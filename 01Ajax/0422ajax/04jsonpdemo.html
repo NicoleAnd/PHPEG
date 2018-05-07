@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button id="btn">点我</button>
+
+	<script type="text/javascript">
+	     // 请求一个服务器地址  jsonp.txt
+	     function fn(data) {
+               console.log(data.data[0].name);  
+	     }
+	</script>
+	<!--<script type="text/javascript" src="jsonp.txt"></script>-->
+	<script type="text/javascript">
+	    var btn = document.getElementById("btn");
+	    btn.onclick = function() {
+           // 创建script标签
+           var scriptObj = document.createElement("script");
+           //  追加script
+           document.body.appendChild(scriptObj);
+           scriptObj.src = "jsonp.txt";
+
+	    }
+	</script>
+</body>
+</html>

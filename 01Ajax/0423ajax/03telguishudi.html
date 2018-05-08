@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1>本网站拥有世界上最丰富的手机号码数据库，免费查询</h1>
+
+	<input type="text" id="telnum" />
+	<button id="btn">点我查询</button>
+	<p id="msg"></p>
+	<script type="text/javascript" src="js/jquery-1.12.1.min.js"></script>
+	<script type="text/javascript">
+		$("#btn").click(function(){
+			var haoma = $("#telnum").val();
+			// alert(haoma);
+			if(!/^\d{11}$/.test(haoma)) {
+       	    	alert("号码有误");
+       	    	return;
+       	    }
+       	    $.get("PHP/phone.php?tel="+haoma,function(data){
+       	    	//console.log(data);
+       	    	$("#msg").html(data.areaName+data.providerName);
+       	    });
+		});
+	</script>
+	
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button id="btn">发起jsonp</button>
+	<script type="text/javascript" src="js/jquery-1.12.1.min.js"></script>
+	<script type="text/javascript">
+	   $("#btn").click(function() {
+	   	    $.ajax({
+	   	    	
+	   	    	"url":"https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=%E7%BE%8E%E5%9B%BD&json=1&p=3&sid=1457_21082_18560_20928&req=2&csor=2&pwd=meiguo&cb=test",
+	   	    	"dataType":"jsonp",
+	   	    	"jsonpCallback":"test",
+	   	    	"success":function(data) {
+	   	    		console.log(data);
+	   	    	}
+	   	    });
+	   });
+	</script>
+</body>
+</html>

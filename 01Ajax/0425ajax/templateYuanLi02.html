@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		table,tr,td{border:1px solid #ccc;border-collapse: collapse;}
+		.special {background-color: red;}
+	</style>
+</head>
+<body>
+	<table id="biaoge">
+		<tr>
+			<td>学号</td>
+			<td>姓名</td>
+			<td>性别</td>
+			<td>年龄</td>
+		</tr>
+	</table>
+	<!-- <script type="text/template" id="template">
+		<tr class="@leiming@">
+			<td>@num@</td>
+			<td>@name@</td>
+			<td>@sex@</td>
+			<td>@age@</td>
+		</tr>
+	</script> -->
+	<script type="text/javascript" src="js/jquery-1.12.1.min.js"></script>
+	<script type="text/javascript" src="js/underscore.js"></script>
+	<script type="text/javascript">
+		// var $biaoge = $("#biaoge");
+		// // 读取模板字符串
+		// var templateStr = $("#template").html();
+		//console.log(templateStr);
+		//alert(typeof templateStr);
+		// 拿到数据
+		// $.get("student.json",function(data){
+		// 	// 循环
+		// 	//console.log(data.data);
+		// 	for(var i=0;i<data.data.length;i++){
+		// 		// 数据字典
+		// 		var dic = data.data[i];
+		// 		dic.leiming = dic.age>=30?"special":"";
+		// 		// 数据绑定
+		// 		var DOMString = compile(templateStr,dic);
+		// 		// 添加dom
+  //               $biaoge.append(DOMString);
+		// 	}
+		// });
+		var template = _.template("<tr><td><%= num %></td><td><%= name %></td><td><%= sex %></td><td><%= age %></td></tr>");
+		$.get("student.json",function(data){
+			for(var i=0;i<data.data.length;i++){
+				var dic = data.data[i];
+				var res = template(dic);
+				$("#biaoge").append(res);
+			}
+		});
+		
+		
+		
+	</script>
+</body>
+</html>

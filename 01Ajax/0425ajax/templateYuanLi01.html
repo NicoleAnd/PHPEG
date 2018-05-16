@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>模板引擎</title>
+</head>
+<body>
+	<script type="text/javascript" src="js/underscore.js"></script>
+	<script type="text/javascript">
+		// _.template(templateString, [settings]) 
+		
+		// var compiled = _.template("hello: <%= name %>");
+		// var res = compiled({name: 'moe'});
+		// console.log(res);
+		var template = _.template("今天非常<%= state %>，我买了一台<%= thing %>，花了<%= price %>元");
+		var res = template({state:"happy",thing:"苹果电脑",price:16000})
+		console.log(res);
+
+		
+		
+	</script>
+
+	
+</body>
+</html>

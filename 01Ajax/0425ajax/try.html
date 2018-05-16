@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		table,tr,td{border:1px solid #ccc;border-collapse: collapse;}
+		.special {background-color: red;}
+	</style>
+</head>
+<body>
+	<table id="biaoge">
+		<tr>
+			<td>学号</td>
+			<td>姓名</td>
+			<td>性别</td>
+			<td>年龄</td>
+		</tr>
+	</table>
+	<script type="text/template" id="template">
+		<tr>
+			<td>@num@</td>
+			<td>@name@</td>
+			<td>@sex@</td>
+			<td>@age@</td>
+		</tr>
+	</script>
+	<script type="text/javascript" src="js/jquery-1.12.1.min.js"></script>
+	<script type="text/javascript">
+		var $biaoge = $("#biaoge");
+		var templateStr = $("#template").html();
+		//console.log(templateStr);
+		$.get("student.json",function(data){
+			//console.log(data.data);
+			for(var i=0;i<data.data.length;i++){
+				var dic = data.data[i];
+				var DOMString = compile(templateStr,dic);
+				$biaoge.append(DOMString);
+			}
+		});
+
+		// 数据绑定函数         
+		function compile(str,dictionary) {
+			return str.replace(/\@([a-z]+)\@/g,function(match,$1,index,string) {
+				return dictionary[$1];   
+			}) 
+		}
+	</script>
+</body>
+</html>

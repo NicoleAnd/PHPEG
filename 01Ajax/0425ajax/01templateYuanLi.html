@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+		// 模板 带有特殊语法的字符串
+		var str = "今天非常@state@，我买了一台@thing@，花了@price@元";
+		// 字典 数据
+		var dictionary = {
+			"state":"happy",
+			"thing":"苹果电脑",
+			"price":16000
+		}
+		// 数据绑定函数
+		function compile(str,dictionary){
+			return str.replace(/\@([a-z]+)\@/g,function(match,$1,index,string) {
+				return dictionary[$1];   
+			}) 
+		}
+		str = compile(str,dictionary);
+		// 打印
+		alert(str);
+	</script>
+</body>
+</html>

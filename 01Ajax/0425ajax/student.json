@@ -1,0 +1,28 @@
+{
+	"data":[
+		{
+			"num":1001,
+			"name":"Bob",
+			"sex":"male",
+			"age":23
+		},
+		{
+			"num":1002,
+			"name":"Jhone",
+			"sex":"female",
+			"age":45
+		},
+		{
+			"num":1003,
+			"name":"Geogy",
+			"sex":"male",
+			"age":22
+		},
+		{
+			"num":1004,
+			"name":"Anna",
+			"sex":"female",
+			"age":12
+		}
+	]
+}

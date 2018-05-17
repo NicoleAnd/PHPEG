@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script type="text/javascript" src="js/underscore.js"></script>
+	<script type="text/javascript">
+		// 模板字符串
+		var str = "我今天非常<%= mood%>，我买了一台<%= product %>，花了<%= price %>元";
+		
+		// 生成一个数据绑定函数
+		var compile = _.template(str);
+		
+		// 字典
+		var dic = {
+			"mood":"高兴",
+			"product":"iphoneX",
+			"price":7600
+		};
+
+		// 调用数据绑定函数
+		var res = compile(dic);
+		console.log(res);
+		
+		// 我的作业
+		// var template = _.template("今天非常<%= state %>，我买了一台<%= thing %>，花了<%= price %>元");
+		// var res = template({state:"happy",thing:"苹果电脑",price:16000})
+		// console.log(res);
+	</script>
+</body>
+</html>

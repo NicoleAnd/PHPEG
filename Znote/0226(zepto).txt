@@ -1,0 +1,73 @@
+zepto
+1 概述
+    中文网址 http://www.css88.com/doc/zeptojs_api/
+    Zepto是一个轻量级的针对现代高级浏览器的JavaScript库， 它与jquery有着类似的api。 如果你会用jquery，那么你也会用zepto。
+
+    "阉割版"的jquery,却比jquery强大
+
+    语法和jquery一模一样，甚至连函数名字都一样
+
+
+2 选择器
+
+   * zepto不支持jquery的自创选择器 比如
+        $("div:odd");
+        $("div:even");
+        $("div:lt(5)");
+        $("div:gt(5)");
+        $("div:first");
+        $("div:last");
+        $("div:eq(4)");
+
+    * css3的选择器统统支持
+
+         $("div:first-of-type"); 
+         $("div:last-of-type"); 
+         $("div:nth-of-type(3n+2)"); //所有类型为div为3n+2
+         $("div:nth-child(8)"); //所有孩子div为8
+
+    * zepto的$()底层用的querySelectorAll()  
+    
+       getElementsByClassName() IE 6 7 不支持  jquery用正则模拟  
+
+       zepto不支持低版本
+
+
+3 常用方法、属性          
+    html()方法
+     $("div").html("1234");
+
+    节点选择
+      $("div:first-child").parent("section").children().eq(0).siblings().html("aa");
+
+    位置
+       $("div:nth-child(3)").offset().left
+
+    增加或移除类
+       addClass() removeClass()
+
+    DOM操作
+       复制  增加  移除等
+
+4  动画
+    追加js------组件化追加用到的js，zeptoWithFX.js
+ 
+    *zepto动画 是用css3过渡 实现 不是用定时器,所以zepto的animate函数能够实现背景色的动画、背景定位的动画、transform的动画，而jquery不能实现的
+
+
+    jquery:兼容所有浏览器 选择元素、DOM操作、css样式改变、动画、ajax很方便，animate()方法原理是定时器，不能进行背景色动画 不支持transform动画
+
+
+    zepto:"阉割版"的jquery,却比jquery强大，不兼容所有浏览器，选择器用querySelectorAll()，完成包括3D的动画 
+
+
+    jquery2.x: 不兼容IE6 7 8 开始使用querySelectorAll()，减少正则的使用，动画还是用定时器实现的，不能进行背景色动画 不支持transform动画
+
+
+    velocity:看成jquery插件，增强了jquery的animate函数，支持背景色的动画 支持transform的动画，实现的机理是定时器
+
+5 事件
+   原生事件都支持，不需要引包,zepto提供的touch包封装了一些事件，但是不好用，而是用原生的touch事件
+
+
+

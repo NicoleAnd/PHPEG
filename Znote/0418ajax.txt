@@ -1,0 +1,42 @@
+* encodeURIComponent()
+   请求尽量不要有中文，假如需要传中文，前端一般要进行encodeURIComponent()处理
+
+   get请求或post请求，假如用中文，一般讲中文转为URI标准字符
+
+* post请求必须setRequestHeader一下
+
+   服务器端一般对post请求比较难处理，需要服务器进行"流处理"程序,原因是post请求的参数尺寸无限大，post请求是一段一段上去
+   此时用$_POST[]接受报错,但是表单提交，php内置相应处理程序，AJax需要模拟表单提交，需要在发送前设置
+
+
+   // 假如是post请求,模拟表单提交 
+             xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+
+ * 表单序列化
+     表单中的每个控件，都有name属性，radio、checkbox、select甚至需要迭代才能得到他们值，并且用ajax提交表单的时候，要手工序列号
+        name=along&age=20&sex=男&hobby=羽毛球&hobby=篮球
+
+      实现表单序列化 
+      * form元素.elements 获取表单所有控件
+      * 对于select控件 其type值为select-one
+
+ * json处理
+ 		前端						后端
+ 	* 发请求					   数据处理
+ 	* 对收到json进行处理
+
+ 	字符串转json
+ 		方法一 eval语句
+ 			eval能够识别字符串 并把字符串当js语句执行
+ 		方法二 new Function语句 少用
+ 		方法三 使用内置对象JSON对象的parse方法 兼容ie6 7
+			字符串--->JSON JSON.parse(data)
+			JSON ---->字符串 JSON.stringify(json对象)
+			
+
+
+
+
+
+
+

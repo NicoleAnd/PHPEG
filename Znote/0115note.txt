@@ -1,0 +1,69 @@
+css3
+1 选择器
+   关系选择器
+       > 亲儿子 .box>p  IE7开始兼容
+       + 下一个兄弟  IE7开始兼容
+       ~ 后面所有兄弟 
+
+       $("div>p") === $("div").children("p") 
+        $("div+p") === $("div").next("p") 
+        $("div~div") === $("div").nextAll("div")
+        IE6兼容
+
+    属性选择器 
+         见04案例
+        （自加）
+        img[src="images/2.png"] { border:10px solid red; }
+        img[alt="11"] { width: 110px; }
+        img[kaola="你"] { transform:rotate(45deg); }
+        // 同时成立
+        [alt="11"][kaola="我"] { box-shadow: 4px 4px 4px red; }
+        // 以值开头
+        p[class^="para"] { color:red; } 
+        // 以值结尾 
+        p[class$="2"] { font-size: 40px; }  
+        // 只要含有该值
+        p[class*="a"] { text-decoration: underline; }  
+        // 以值开头 并且 紧跟一个-  等价于p[class^="para-"]
+        p[class|="para"] { font-style: italic; }
+        div { width: 20px; height: 20px;background-color: #ccc;margin: 10px; }
+        div[class="haha"] { background-color: red; }
+        //值是一个独立的用空格分开的个体
+        div[class~="haha"] { background-color: red; }
+        input[type="button"] { background-color: green; }
+
+     儿子序选择器:
+
+         :first-child IE7兼容  以下IE9兼容
+         :last-child
+         :nth-child(2) 
+         h2:nth-of-type(3)
+
+         //.haha:nth-of-type(2){}
+         //1 该元素class必须是haha 2 是某一个元素的haha的儿子中第2个 ie9选择
+         :nth-last-of-type()
+         //倒数儿子
+         :first-of-type
+         :last-of-type      
+
+          p:nth-child(2)  $("p").eq(1)
+      想让父亲中第4个p元素之后所有人都选中    
+
+        p:nth-child(4)~p
+
+     伪类
+        css2 a:link a:hover a:visited a:active
+
+        css3 :hover能够用在任何元素上 IE7
+             :focus得到焦点时
+             :not 反着选 IE9兼容
+               p:not(.demo) 没有demo类的p元素
+             :only-child 唯一的儿子 IE9兼容
+             :empty 空标签 
+                 <p></p> 满足条件 没有任何文字 空格 换行 tab  
+              :checked
+                 选中到单选按钮、复选框被勾选    
+              :disabled  :enabled
+      伪元素
+            ::before  ::after 都是行内元素         
+

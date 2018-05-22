@@ -1,0 +1,18 @@
+Boostrap
+1 概述
+	bootstrap "引导程序"，由Twitter创立，让响应式网站变得更简单
+
+	中文官网 http://www.bootcss.com/
+
+	bootstrap 是框架，和我们学的jquery不一样，bootstrap不仅仅是js还是css,网站中所有的东西，比如标签（标签的类名不能随便起）、css、js都是建筑于bootstrap
+
+2 部署
+	* 下载  http://www.bootcss.com/
+	
+
+敏捷开发
+	1 利用别人写好的CSS和必要的html结构 在我们的页面ctrl+v，让我们做页面变得简单
+	2 缺点 不方便自定义
+
+栅格系统
+	1 容器

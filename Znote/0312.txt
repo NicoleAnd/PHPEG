@@ -1,0 +1,81 @@
+DOM
+1 获得节点
+2 修改节点的属性和内容
+3 增加、删除、修改节点
+4 帮我们查找节点关系
+
+==================节点关系================
+1 childNodes属性------访问子节点(包括标签节点 文本节点 注释节点)
+   父节点.childNodes得到父节点下的子节点
+    
+2 nodeType属性 节点类型
+     标签节点 nodeType返回值1
+     文本节点 。。。。。。。3
+     注释节点 ..............8
+     Document .............9
+     DTD      .............10
+
+ IE6 7 8 获取子节点没有文本节点，高级浏览器 子节点包含所有的节点
+
+
+ 3 nodeValue-----专门获取或修改文本节点的属性
+
+ 4 parentNode------获取父节点属性
+     语法 子节点.parentNode
+       
+     document.parentNode == null  
+      
+ 5 nextSibling-----下一个亲兄弟 包括注释 文本 标签
+
+
+ 6 previousSibling-----上一个兄弟 是属性
+
+
+
+
+ =================节点操作(原生js)=================
+ 1 创建节点
+      document.createElement(标签) 一个节点被创建出来
+
+ 2 追加节点
+
+       * 父元素.appendChild(子元素) ,子元素可以是新创建的元素也可以是已经存在的元素
+
+       * insertBefore()
+          父元素.insertBefore(新儿子,标杆儿子)
+
+3 移除节点
+   removeChild()
+  父亲.removeChild(移除的节点)
+
+4 替换节点
+    replaceChild()
+
+    父亲.replaceChild(newChild,oldChild);
+
+5 复制节点
+      cloneNode()
+      元素.cloneNode() ,假如该方法不带参数默认为false,表示克隆节点 无文本；假如设置true,表示
+      节点和文本内容一同克隆
+
+==================节点操作(JQ)=============
+ append() appendTo()   在···之后加  ···被追加到···之后
+ prepend() prependTo() 在···之前加
+ After()                之后
+ insertAfter            
+ Before()               之前
+ insertBefore()
+
+ remove()
+ empty()
+ wrapAll() 把获得所有节点用一组标签包裹在一起  
+ clone()
+
+.is(":visible")
+.is(".current")  class="current"?
+.is(":checked")
+.is(":animated")
+
+
+
+

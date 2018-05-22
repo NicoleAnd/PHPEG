@@ -1,0 +1,92 @@
+移动web页面制作
+1 了解移动端的状态
+   越来越多的人使用手机上网 
+
+2 手机网民数据
+    https://mtj.baidu.com/data/mobile/device
+
+3 手机网页制作
+    手机中运行js、ajax、jquery等没有问题，对h5、c3支持比计算机还要好
+
+    我们做的网页是供智能手机使用，不考虑塞班手机
+
+4 手机浏览器
+    UC QQ 欧朋  百度  360 谷歌 搜狗 猎豹 其他杂牌
+
+    百度  UC QQ 根据Webkit修改过来的内核 
+
+    移动端四个独立的浏览器内核
+          微软  Trident    wp7、8系统内置浏览器
+          火狐  Gecko
+          开源内核 Webkit  Safari Android原生浏览器 Chrome
+          Opera    Presto  OperaMini
+
+          -ms-
+          -moz-
+          -webkit-
+          -o-  
+
+
+5 视口
+     js
+
+      document.documentElement.clientWidth  
+
+     结论 电脑  分辨率=视口宽度
+
+
+      手机的分辨率远比980大 ，为什么显示980，980是viewport宽度
+
+      总结 980px是人为规定的宽度，叫视口宽度，手机默认的视口宽度都是980px,若用手机访问没有优化的电脑页面时候，非常方便，直接卡主版心，高空俯瞰整个页面
+
+      <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+
+      视口约束之后的宽度都介于320~480,文字大小刚刚好，所有手机页面都要加上这条meta，这样不会高空俯瞰页面
+
+6 流式布局(百分比布局 弹性盒布局)
+  明确一点  手机网页没有版心，左右撑满
+      原因 1 手机本身视口比较小 限制一个版心 左右留白 非常难看 
+           2 APP都是满的 习惯也会撑满
+
+   百分比
+        width设置百分比 指的是父元素的width的百分之多少
+
+        height设置百分比 指的是父元素的height的百分之多少
+
+        padding设置百分比 无论水平的padding还是竖直的padding,指的是父元素的width的百分之多少
+
+        margin设置百分比 无论水平的margin还是竖直的margin,指的是父元素的width的百分之多少
+
+        border不能用百分比表示 
+
+        能够设置百分比的属性是width height padding margin
+        其他如border、font-size不能设置百分比
+
+
+        小课堂测试 
+            div {
+               width: 200px;
+               heigt: 300px;
+               padding: 10px;       
+            }
+
+            div p {
+               width: 50%;
+               height: 50%;
+               padding: 10%;
+
+            }
+
+            计算p元素的真实宽高 140*190
+
+
+
+     
+
+
+
+
+    
+
+
+   

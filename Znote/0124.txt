@@ -1,0 +1,60 @@
+2D变形
+css3
+	变化最大的	transition 过渡
+				transform  转换 变形
+				animation  动画 
+
+transform
+	IE9开始兼容
+	transform：rotate(60deg); deg角度 正度数--顺时针 负度数--逆时针 
+	正方向 y轴正半轴为0
+
+	角度可以为负数 transform:rotate(60deg); 等价于 transform:rotate(-300deg);
+
+	任何的变形都可以应用过渡
+
+					
+				|
+				|
+				|
+	------------------------->
+				|
+				|
+				|
+	transform: scale(0.2); //横向纵向缩放倍数
+
+	scale就是缩放 值为正数 没有单位  1-----原始尺寸  <1 缩放  >1放大  
+
+	transform: scale(0.2,1); //横向缩放倍数，纵向缩放倍数
+	transform: scaleX(0.2) scaleY(1); //拆开写
+
+	transform: skew(30deg,10deg);等价于  //横向斜切，纵向斜切
+	transform: skewX(30deg) skewY(10deg);
+
+3D变形
+IE10开始兼容
+	3D变形要有舞台的概念，舞台负责 
+	prespective属性 单位px 
+	表示景深 表示你的眼睛到这个舞台的距离，
+	演员就是里面的img img负责transform
+
+	rotateX 立体 绕x轴旋转
+	transform: rotateX(45deg); //正方向后仰 负数表示磕头  体操单杠
+	transform：rotateY(45deg); //正方向表示 从顶部看 逆时针旋转
+	transform: rotateX(45deg) rotateY(45deg); //x y 同时旋转
+	transform: rotateZ(45deg); //在整个平面中旋转
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+					

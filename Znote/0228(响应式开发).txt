@@ -1,0 +1,40 @@
+响应式网站
+ 1 概念
+
+ 移动web是一个独立的站点，html+css+js都是与pc独立的，和pc网站有关系的数据
+        PC站                   手机版
+     www.jd.com                  m.jd.com
+
+    html+css+js                html+css+js
+
+                   |
+                 数据库
+                   |
+                完整页面 
+                
+    当用户输入www.jd.com 发出http请求，有User-Agent 后台工程师可以写代码检测设备是什么，进行相应跳转
+  
+    响应式网站，是同一份html、css、js代码，交给不同屏幕呈递，所谓响应式网站（RWD），指的是根据用户浏览器视口宽度不同，采取相应的版心 
+
+
+2 原理
+
+     要知道用户屏幕宽度,可以通过js
+          document.documentElement.clientWidth检测或
+     css3媒体查询
+         @media screen and(min-width:1200px) {
+             div {
+
+             }
+         }  
+
+
+
+3 boostrap
+     bootsrap "引导程序"  Twitter
+
+     中文官网 http://www.bootcss.com           
+
+     bootstrap 框架 有js 还是css
+
+

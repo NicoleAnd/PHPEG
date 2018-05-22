@@ -1,0 +1,39 @@
+跨域
+1 ajax不能跨域
+   比如你的服务器是www.qq.com,你不能请求www.baidu.com的文件，但是你可以请求book.qq.com、www.qq.com/1.txt
+
+   出于安全原因，对于任何后台语言(服务器)，所有的xhr类型的请求，假如请求其他服务器，将不予应答
+
+   所有服务器对来自其他服务器的xhr类型的http请求不予响应，浏览器也不予发送前往不同服务器xhr类型请求
+
+   通俗来说xhr对象无法请求其他服务器的内容
+
+   2008  jsonp
+
+2 jsonp原理
+
+   js函数------->放在js文件
+
+
+   外部文件存放一个函数的调用，实参是我们需要的数据，一般都是json
+
+   // 函数调用
+fn({
+	"data":[{
+		"name":"along",
+		"age":20
+	},{
+		"name":"zhangsan",
+		"age":18
+	},{
+		"name":"tom",
+		"age":22
+	}]
+});  
+
+// HTML文件中定义函数
+     // 定义函数
+	   function fn(str) {
+	   	  alert(str.data[1].name);
+	   }
+  注意 先在HTML内部先定义函数，然后引包	   

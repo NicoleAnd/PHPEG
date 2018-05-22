@@ -1,0 +1,42 @@
+1 Ajax不能跨域（同源策略）
+
+2 跨域
+   jsonp
+
+   在外部js文件定义一个函数  html文件引入js 之后调用函数
+   先在html文件中定义函数，外部js调用函数,把数据当成实参进行函数调用
+
+
+   html文件 
+       function fn(data) {
+           // ...
+       }
+
+       <script .... src=".php" />
+
+    外部js
+       fn({
+
+        });  
+
+        json with padding  
+
+
+
+
+   <script type="text/jav...." src="......" />
+
+3 JQ中的jsonp
+     JQ中实现jsonp原理即创建script元素，添加src，注册系统的全局函数名
+
+   必须掌握 1 jsonp原理  2 jquery底层如何实现  
+
+   get、post、jsonp 服务器给你什么 
+    
+
+4 跨域另外一种方法:后台语言处理
+       
+  PHP偷服务器数据，对有的服务器进行了限制，偷不过来
+
+  PHP使用一个函数file_get_contents可以把指定的网址的HTML源码原封不动抄过来 
+   

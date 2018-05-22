@@ -1,0 +1,102 @@
+css3
+1 选择器
+   关系选择器
+       > 亲儿子 .box>p  IE7开始兼容
+       + 下一个兄弟  IE7开始兼容
+       ~ 后面所有兄弟 
+
+       $("div>p") === $("div").children("p") 
+        $("div+p") === $("div").next("p") 
+        $("div~div") === $("div").nextAll("div")
+        IE6兼容
+
+    属性选择器 
+         见04案例
+
+
+     儿子序选择器
+         :
+
+         :first-child IE7兼容  以下IE9兼容
+         :last-child
+         :nth-child(2) 
+         h2:nth-of-type(3)
+         :nth-last-of-type()
+         :first-of-type
+         :last-of-type      
+
+          p:nth-child(2)  $("p").eq(1)
+      想让父亲中第4个p元素之后所有人都选中    
+
+        p:nth-child(4)~p
+
+     伪类
+        css2 a:link a:hover a:visited a:active
+
+        css3 :hover能够用在任何元素上 IE7
+             :focus得到焦点时
+             :not 反着选 IE9兼容
+               p:not(.demo) 没有demo类的p元素
+             :only-child 唯一的儿子 IE9兼容
+             :empty 空标签 
+                 <p></p> 满足条件 没有任何文字 空格 换行 tab  
+              :checked
+                 选中到单选按钮、复选框被勾选    
+              :disabled  :enabled
+      伪元素
+            ::before  ::after 都是行内元素         
+             
+            ::after可以用来清除浮动 
+            ::after {
+                content: "",
+                display: block;
+                clear:both;
+            }
+
+            IE8对::after不兼容，对:after兼容，为了更好兼容
+            写成:after即可
+
+            ::selection 对被选中的文字设置 IE9兼容
+
+            p::selection{
+                background-color: orange;
+                color:white;
+            }
+
+            第一个文字  IE9兼容
+            p::first-letter{
+               font-weight: bold;
+               font-size: 50px;
+               float: left;
+            }
+            第一行 IE9兼容
+            p::first-line{
+               font-weight: bold;
+            }
+2 圆角边框------border-radius
+    单位px或百分比
+    IE9兼容
+
+
+    作业 http://sc.chinaz.com/jiaobendemo.aspx?downloadid=2016111949321
+         http://www.17sucai.com/pins/demoshow/11467
+     
+3 box-shadow和text-shadow 
+
+   box-shadow:2px 2px 2px 2px red; IE9兼容
+
+   box-shadow：2px 2px 2px red 
+
+   text-shadow IE10+兼容 参数少了延展值
+
+4 background系列
+   * 渐变 IE9兼容
+      background-image: linear-gradient(180deg,red,blue); 
+
+      -webkit- -moz- -o- -ms-  水平向右为0 逆时针为正
+      不加前缀 w3c规定  竖直向上为0 顺时针
+
+   *  background-origin和background-clip属性
+            
+       background-origin:content-box 表示背景起源，从内容盒子开始渲染背景
+

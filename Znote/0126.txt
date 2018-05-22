@@ -1,0 +1,47 @@
+背面不可见
+	backface-visibility:hidden;
+旋转轴
+
+	transform: rotate(45deg);
+	transform-origin: 0% 0%;
+	百分比表示占舞台百分多少
+
+空间移动
+	每个空间的元素 都有x、y、z轴
+	x轴的正方向是这个元素的右手
+	y轴的正方向是这个元素的下边
+	z轴的正方向是这个元素的朝向
+
+animation属性
+	定义动画
+		/*定义动画*/
+		@-webkit-keyframes run{
+			from{
+				left: 100px;
+			}to{
+				left: 600px;
+			}
+		}
+		/*调用动画 animation*/
+		div{animation: run 10s linear 0s}
+
+	动画定义：还可以用百分比
+		@-webkit-keyframes run{
+				0%{
+					left: 100px;
+				}
+				90%{
+					left: 150px;
+				}
+				100%{
+					left: 600px;
+				}
+			}
+	动画调用：
+		animation属性 动画名称 动画时间总长 缓冲轨迹 延迟时间s/ 循环次数/ infinite无限循环/ alternate来回变动/ forwards保留在原地/ 
+
+
+
+
+
+

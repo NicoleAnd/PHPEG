@@ -1,0 +1,35 @@
+touch事件
+1 概述
+   手机网页支持click事件,但是响应比较慢，要等300ms(有的手机可能会更慢) 来验证是否有下一次的单击，若有视为
+   "双击"，可能是放大视口或者弹出辅助菜单
+
+   所以我们制作移动web页面时候，一般不用click事件 而是用touch事件，没有延迟，只要你敢碰它，事件就会发生
+
+
+   touch事件分三个 
+         touchstart 表示触摸开始 这个事件每次触摸触发一次   
+            
+         touchmove 表示触摸移动 手指在屏幕上移动时候触发
+
+         touchend  表示触摸结束
+
+    使用的时候 需要用DOM2级方式绑定
+        obj.addEventListener("事件名称",回调函数,false);  
+
+2 触摸事件对象中touches数组 
+     document.addEventListener("touchstart", function(event) {
+	     	    p1.innerHTML = "有人碰我了";
+	     	    console.log(event);
+
+	     }, false);  
+
+	 ** evnent事件对象中的touches,存储每根手指的触摸信息
+	 
+	 touches.length-----代表触摸手指个数
+	 touches[0]中
+	     clientY 触摸的手指距离视口顶边的距离
+	     pageY   触摸的手指距离页面顶端距离
+	     screenY 触摸的手指距离显示屏顶端距离
+	     force   按压力度 
+	     radiusX
+	     radiusY

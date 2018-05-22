@@ -1,0 +1,115 @@
+===================
+1 什么是DOM?
+   DOM开发   html+css+js
+   DOM能做哪些事情
+         * 操作 html、css
+         * 页面元素的事件绑定
+         * DOM可以删除 更改页面的元素
+         * 元素动画
+         ...
+
+    2011之前  100%就是DOM特效开发
+    今天：
+         canvas特效开发  
+         Ajax(请求数据 建立模板 组件页面)
+         Node.js 后台服务器
+         ng/vue/react(前端mvvm框架)
+         DOM开发(基本功)
+
+    jquery 世界公认的开发DOM之神
+    jquery哲学：简化dom开发 为兼容而生
+
+2 jquery入门
+  * 设计理念  write less,do more
+   jQuery is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers. With a combination of versatility and extensibility, jQuery has changed the way that millions of people write JavaScript.
+
+  * jquery不是一门新的语言 只是一个js库  本质上就是一个js文件
+    兼容性做的很棒
+    动能强大 DOM操作  事件机制  动画  ajax 
+    可扩展
+    ...
+  *  jquery版本
+        1.* 兼容ie6 7 8
+        2.*和3.* 不再兼容ie 6  7 8
+  * jquery的初步使用
+      下载 官网  
+
+
+============================
+1 整体感知
+    $()   
+    a 改变css属性   $("li").css("background-color","red");
+
+    b Dom元素绑定事件  
+
+    c 可以给dom元素追加 删除 节点
+
+    d 可以做动画 animate() 
+
+2 jquery特点  批量处理
+
+
+3 jquery对象与原生dom元素之间的转换
+     原生obj ------>$(obj) 变成了jquery对象
+     this    ------>$(this)
+
+     $("div") ------> 原生  $("div")[索引]或$("div").get(索引)
+
+4 jquery选择器
+    基础选择器（效仿css选择器）
+    自己特有的选择器
+         first  last  odd  even  lt(index) gt(index) eq(index)
+
+5 jquery操作css
+    * 方法 css() 方法
+    * $(selector).css("属性名","属性值")
+      比如 $(".demo").css("width","200px");
+           $(".demo").css("height","200px");
+           $(".demo").css("color","purple");
+           $(".demo").css("text-align","center"); 
+           ...
+        // 多个属性同时设置 
+        $(selector).css({
+              "k":"v",
+              "k":"v",
+              "k":"v"
+        });      
+    
+      注意 1 css()对象里的复合属性可以用-隔开或者用驼峰式命名方式
+           2 属性值是数字的时候，可不加引号
+6 jquery动画
+     show()  hide()  toggle()
+     fadeIn()  fadeOut() fadeToggle() fadeTo()
+     slideDown  slideUp slideToggle
+
+7 计算节点的个数
+    size()
+    length   
+
+8 jquery常用方法
+     html() ------原生js innerHTML
+       * 作用 获取节点中所有的内容或设置节点的内容
+       * 支持标签
+
+     text() ------原生js innerText textContent
+         * 作用 只获取节点中所有的内容(不包含标记) 
+
+     attr() 
+        * 访问节点属性值  attr("K")
+        * 设置节点属性  attr("k","v");   
+        * 注意单选按钮和多选框的状态有专门的方法prop()
+
+
+
+     
+
+
+
+
+
+
+
+            
+
+
+

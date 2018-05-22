@@ -1,0 +1,98 @@
+Ajax
+1 HTTP
+   HyperText Transfer Protocal 超文本传输协议 文件传输协议
+
+
+   HTTP传输不是一个文件整体传输 把一个大文件分成一个个报文，然后传输，所以我们浏览器渲染页面，一块一块加载，图片是一条一条显示。
+
+   HTTP无连接的
+
+
+   FTP File Transfer Protocal  FTP协议是持续连接
+
+   "上网"
+
+
+   一次HTTP请求有上行request，下行response，浏览器产生HTTP请求（输入一个新网址，或者点了超链接），会导致页面的全局刷新，AJax技术，可以让网页悄悄地发起HTTP请求，请求回来的数据在页面局部刷新
+
+2 AJax技术欣赏   
+
+
+3 AJax详解
+   Asynchronous JavaScript and XML(异步javascript和XML)
+
+   xml标签自定义，也是表达语义的,它是负责交换信息的 现在被JSON替代
+
+   <articles>
+       <article>
+          <biaoti>111</biaoti>
+          <author>jake</author>
+          <neirong>zdddd</neirong>
+       </article>
+       <article>
+          <biaoti></biaoti>
+          <author></author>
+          <neirong></neirong>
+       </article>
+       <article>
+          <biaoti></biaoti>
+          <author></author>
+          <neirong></neirong>
+       </article>
+   <articles>
+
+
+   {
+      "articles":[{
+         "biaoti":"...",
+         "author":"...",
+         "neirong":"..."
+      },{
+         "biaoti":"...",
+         "author":"...",
+         "neirong":"..."
+      },{
+         "biaoti":"...",
+         "author":"...",
+         "neirong":"..."
+      }]
+   }
+
+
+   * xhr对象  ajax完全依赖于它 
+        new XMLHttpRequest() IE6兼容 IE6是 new ActiveXObject()
+
+   * 异步  
+   
+       js setInterval setTimeout
+          事件监听
+          Ajax
+          NodeJS全是异步
+   * send()方法
+       发送请求  send(参数)
+          参数表示报头携带的内容 get方式 send(null)
+          post请求  xhr.send("name=zhangsan&age=25")
+  * readystatechange事件
+      xhr一旦open 就有readyState属性 该属性一旦改变
+      readystatechange事件就触发
+
+      readyState属性取值
+          0 open() 没被调用
+          1 open() 被调用
+          2 头部已被服务器接收
+          3 开始接收服务器返回的东西 但是未完全接收
+          4 完成
+
+      xhr.responseText 表示返回的文本 是一个字符串
+
+
+
+
+
+
+
+
+
+   
+
+

@@ -1,0 +1,62 @@
+* background-size
+	更改背景图的尺寸，IE9开始兼容
+	background-size: 200px 200px; /* 第一个200px宽度 第二个是200px高度 */
+	background-size: 200px auto; /* 第一个200px宽度 第二个auto表示自动按照比例计算 */
+
+	background-size: cover; /* 表示不变形 本意覆盖 尽可能大的呈递图片 */
+	background-size: contain; /* 表示不变形 能完整呈递图片 */
+
+* 多背景图
+	IE9兼容
+	background: url(images/0.png) repeat-y,
+				url(images/shishi.png) no-repeat,
+				url(images/tiger.png);
+	background: auto auto,
+				600px 100,
+				auto auto;
+
+* 过渡
+	transition属性 表示过渡 可以制作动画
+
+	1 与js对比 原生js setInterval
+		css3过渡效率高 平滑程度和细腻程度也比js高
+	2 基本语法
+		/*  第一个参数 属性 表示让什么属性参与过渡 
+				all表示所有的属性
+			第二个参数 表示过渡动画时间 写单位必须是s 
+			第三个参数 表示缓冲描述词 ease 不匀速 linear 匀速
+			第四个参数 表示延迟时间 0s不延迟
+			贝塞尔曲线 可以从官网生成
+		*/
+		transition: all 2s cubic-bezier(.29,1.05,.078,.07) 3s;
+	3 什么属性可以应用过渡
+		基本所有的属性都能过渡
+			border-radius;box-shadow;background;border;tranform:rotate(45deg);font-size;color;等
+		不能过渡的：
+			float linear-gradient
+			jquery animate()函数 不支持背景色 背景定位
+			所以想实现背景色或背景定位的动画，可以使用CSS3
+	4 什么时候出发过渡
+		任何元素CSS发生改变 触发 ，不一定非要通过：hover触发，
+		像js直接设置属性，也能够触发过渡
+
+* 兼容性策略
+	平稳退化
+		高级浏览器炫酷，低级浏览器看不见炫酷效果，
+		页面结构和骨架稳定，该显示的东西都有
+
+		border-radius:20px  IE6 7 8
+
+		渐进增强 
+			低版本用户普通功能，附加的功能没有
+			现代浏览器用户更方便的功能
+			<input type="number"/>
+
+		破罐破摔 不让低版本浏览器用户看到这个页面 强行跳转
+		<!--[if lte IE9]-->
+		<script type="text/javascript">
+			window.location = "error.html"   //error.html请下载高版本浏览器
+		</script>
+		<!--[endif]-->
+
+		section    html5shiv.js   //插件 所有标签转化成div

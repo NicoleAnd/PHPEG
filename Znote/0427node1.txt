@@ -1,0 +1,54 @@
+node.js
+一 复习B/S结构
+	见BS架构.png
+
+	服务器运行一些程序，如php,jsp,asp,python等
+	用户从浏览器发出HTTP请求（输入网址，点击超链接，提交表单）之后，后台语言开始执行，后台语言会根据请求进行不同的工作，与数据库通信完毕后，组件一个页面用HTTP响应发回给浏览器，浏览器解析渲染HTML、CSS和JS代码
+
+                               step1 Http Request 
+B------Browser(客户端浏览器)  -----------------------> S(server)
+
+															3
+			1.发送 http Request							---------->
+B --------------------------------------------------> S <---------- DB
+  <--------------------------------------------------
+ 			6.http Response
+HTML											2	php		4
+CSS													jsp
+JS													asp
+												5	python
+													Scala
+
+二 复习PHP
+	PHP是一个语言，不能独立运行，必须运行在Apache上，计算机只要安装了如IIS、阿帕奇、Nginx、Tomcat、glassfish等就能提供http服务，此时计算机就变成了服务器
+
+	Apache有一个最大的特点: 能够根据文件的物理层次映射出URL
+			物理文件的地址								URL
+		Apache根目录/index.html 				http://127.0.0.1/index.html
+		Apache根目录test/index.html 			http://127.0.0.1/test/
+		Apache根目录test/a/b/index.html 		http://127.0.0.1/test/a/b/
+
+	PHP可以处理get请求和post请求
+
+	总结：  1 HTTP请求也有相应
+			2 get/post请求区别
+
+	除了以上举例的后台语言，今天我们开始接触一个新的后台（服务器）语言 node.js
+
+	Node.js让javascript的触角伸到了服务器。
+	Node.js可以让服务器运行js。
+	如今js不仅仅做一个轮播图、正则、动画，现在可以做服务器程序，
+	Node.js可以让js干php可以干的事情如处理get请求post请求 操作数据库
+
+	Node.js本质就是js的运行环境
+
+
+
+
+
+
+
+
+
+
+

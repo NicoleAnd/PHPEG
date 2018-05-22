@@ -1,0 +1,54 @@
+正则表达式
+1 匹配字符串的一种模式
+2 正则表达式是对象
+   6个方法  正则相关的 exec和test
+         字符串相关方法 search match  split  repalce
+如何创建正则表达式
+    * 正则字面量 
+        var reg = /abc/;  
+
+    * new方式 
+        var re = new RegExp("abc");  
+
+split
+    切割字符串  
+
+search
+    用来寻找字符或字符串在父字符串的位置
+
+match  
+    在父字符串中寻找匹配字符串，它是一个字符串方法，参数配置字符串或正则
+
+replace
+    替换父字符串中匹配的字符串      
+     var str = "www.along2018.cn";
+	    console.log(str.replace(/along2018\.cn/,"along2019.com"));// www.along2019.com
+	    console.log(str.replace(/along2018\.cn/,function() {
+	    	  return "along2019.com";
+	    }));
+
+	 第一个参数 匹配的字符串 可以是字符串也可是正则表达式  
+	 第二个 替换的字符串 可以为简单类型也可以是函数    
+
+
+	 以上4种方法属于字符串 字符串.方法(正则) 
+
+正则表达式方法
+   exec() 在目标字符串中执行一次正则匹配操作,将匹配的第一个结果输出到数组中,exec会忽略全局界定符，不会输出所有的情况，只会输出第一个匹配的字符串
+      练习 "ooooo  0 0  ooooooooooo" 匹配 "o  0 0  o"
+   test() 用正则表达式去匹配字符串 假如字符串中存在正则表达式匹配的字符串返回true,没有匹配的返回false
+
+正则的术语和操作符
+    正则表达式：由一些普通字符和元字符组成,  特殊字符有 \ () [] {} ^ $ | ? * +
+
+   * 精确匹配 匹配字符串一些固定值或常量
+       /good/.test("ahjshjdsdsgoodgajkjk"); // true
+       /good/.test("ahjshjdsdsgodogajkjk"); // false
+     精确匹配不能用一些特殊的预定义特殊符号
+         \s
+
+    * 预定义特殊符号
+        \t  /\t/  制表符
+        \n        回车符       
+
+

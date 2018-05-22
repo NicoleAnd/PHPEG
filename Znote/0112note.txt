@@ -1,0 +1,163 @@
+HTML5概述
+* 超文本标记语言最新版本,2014年10月29日,8年
+* HTML5在哪些领域增强？
+   火狐开发者文档 https://developer.mozilla.org/zh-CN/docs/Web/Guide/HTML/HTML
+   1 语义   p ul ol   img 
+       html5 增加很多的语义化标签  表单标签
+   2 连通性
+       web socket 
+
+       服务器和浏览器之间可以通过web socket（网络套接字）保持持久的联通
+
+       HTTP本身是无连接的,不能让浏览器与服务器之间保持持久连接。 聊天室   实际上没有持久连接的概念 
+    3 离线 & 存储     
+         离线
+         存储 之前开发的程序，内容持久化通过MySql  以前无法通过js来操作数据库的 H5中提供了JS能够
+         操作迷你数据库,叫localStorage sessionstorage
+    4 多媒体
+         audio video 
+    5 2D/3D 绘图 & 效果   
+       增加api canvas WebGL svg 
+       水果忍者 canvas游戏
+
+    6 性能 & 集成
+        web worker(了解)
+        拖放api   全屏api  
+
+    7 设备访问 Device Access
+         使用地理位置 摄像头 触控事件 检测设备方向（给移动端提供的api）
+
+    8 样式设计
+         css3   
+
+
+    HTML5约等于 html的升级+css的升级+js api变化 
+ 
+ * html语义增强
+
+      h5新的骨架  
+          <!DOCTYPE html> DTD IE6 7 不支持 IE8+ 
+
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+	         <meta charset="UTF-8">
+	         <title>Document</title>
+          </head>
+          <body>
+	
+          </body>
+          </html>  
+
+        新的规范
+           XHTML 严格版的HTML
+           h5放宽标准  
+             <DiV>盒子</DiV>
+             <img src="..." alt=" ">
+             <img src=... alt=>
+
+             <link rel="stylesheet"  href="" />
+             <script type="text/javas...">
+             </script>
+        "风骨"     
+* html5中增加的提纲标签
+     h1~h6
+
+     <div class="footer"></div>
+
+
+     h5把常见的语义div 提炼为标签
+       <section></section> <article></article>
+       <nav></nav> header footer aside  hgroup 
+
+       使用的时候，这些语义化的标签可以包裹div，div不能包裹他们，这些都是块级元素，没有任何默认样式，可以放任何东西
+
+       兼容: IE9开始兼容,手机无兼容问题  webkit
+* html5新语义标签
+     html4.01 p ul ol dl table
+     html5极大丰富了语义标签
+     <figure>
+		<img src="img/bj.jpg" alt="">
+		<figcaption>北京天安门</figcaption>
+	</figure>
+	...
+* 新的表单元素
+    input 
+      text/password/radio/checkbox/button/submit/reset/file
+      select textarea 
+========================================================
+* 多媒体-音视频
+  视频
+  html4.01 想插入音频、视频都必须借助于flash
+  h5中播放视频变得简单 直接使用video标签  播放音频
+  使用audio标签
+
+  1 video标签支持的格式是mp4和ogv
+       常用的属性  controls表示显示控件
+                   width  height
+                   autoplay 自动播放
+
+       <video autoplay controls>
+          <!--source播放列表-->
+          <source src="video/a.mp4"/>
+          <source src="video/b.mp4"/>
+     </video>  
+
+     js api  事件  onpause事件  onplay事件
+             方法  pause()   play()
+
+     音频 
+         支持的格式是mp3和ogg  
+        IE9+ <audio src="..." autoplay/>                  
+  
+  兼容
+      <video src=  width=>
+          flash
+
+          <source ...>
+          <source ...>
+      </video>
+
+      插件  html5shiv.js
+
+
+* css3 
+    目的在于扩展css2.1,css3提供了很多新的特性 圆角、阴影、
+    gradients(渐变) transition(过渡)、animation(动画)等，还有新的布局（multi-columns flexible box 或grid layouts）
+
+  CSS3  css创立之初
+         <style>
+             along {
+                w
+                h
+             }
+
+             div {
+                 width: 100px;
+             }
+         </style>
+ css3兼容问题：
+       网站打分http://html5test.com/results/desktop.html
+    CSS3主要用于移动端，因为移动端没有IE浏览器，PC端要等几年才能完全使用   
+
+选择器
+
+
+
+
+
+圆角
+
+
+
+
+阴影
+
+
+
+背景
+
+
+
+
+过渡         

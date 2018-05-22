@@ -1,0 +1,51 @@
+复习
+
+1 页面输出2~100的所有质数
+
+2 php连接数据库
+
+
+GET请求
+
+* 概述
+
+    js程序让用户输入一些信息，什么办法？
+    prompt()
+
+    <input type="text" id="txt"/>
+    txt.value
+
+    服务器上php程序，如何得到用户的是数据？最简单的办法就是GET请求，用url来传递数据https://www.jd.com/?name=123&age=12 ？后面的部分不影响访问哪个页面
+
+
+    http://....?k=v&k=v&k=v
+
+    服务器得到GET请求中任何部分的值  $_GET["k"]
+
+             request请求
+    B   ---------------->    S
+ 浏览器                    服务器端
+
+
+
+ * GET请求表单
+     form有两个重要的属性
+
+     method 表示提交方式GET或POST，假如你写了GET，将来提交表单的时候，会通过URL地址传递参数
+     action属性 处理表单的php程序
+
+     GET缺点：1 安全不高，暴露隐私 
+              2 数据内容不能太大，URL地址有限制，所以GET请求数据限制大小
+     优点 便于分享网址
+
+* SQL语法
+     查询 SELECT * FROM 表名
+     插入 INSERT INTO 表名(字段1,字段2,字段3,字段4) VALUES(值1,值2,...)
+     $result = mysql_query("INSERT INTO student(xuehao,name,tel,qq) VALUES('{$xuehao}','{$xingming}','{$tel}','{$qq}')");
+
+本周五6:30-8:30 post请求  
+                php和json 
+                AJAX         
+
+
+

@@ -1,0 +1,184 @@
+正则表达式
+1 匹配字符串的一种模式
+2 正则表达式是对象
+   6个方法  正则相关的 exec和test
+         字符串相关方法 search match  split  repalce
+如何创建正则表达式
+    * 正则字面量 
+        var reg = /abc/;  
+
+    * new方式 
+        var re = new RegExp("abc");  
+
+split
+    切割字符串  
+
+search
+    用来寻找字符或字符串在父字符串的位置
+
+match  
+    在父字符串中寻找匹配字符串，它是一个字符串方法，参数配置字符串或正则
+
+replace
+    替换父字符串中匹配的字符串      
+     var str = "www.along2018.cn";
+	    console.log(str.replace(/along2018\.cn/,"along2019.com"));// www.along2019.com
+	    console.log(str.replace(/along2018\.cn/,function() {
+	    	  return "along2019.com";
+	    }));
+
+	 第一个参数 匹配的字符串 可以是字符串也可是正则表达式  
+	 第二个 替换的字符串 可以为简单类型也可以是函数    
+
+
+	 以上4种方法属于字符串 字符串.方法(正则) 
+
+正则表达式方法
+   exec() 在目标字符串中执行一次正则匹配操作,将匹配的第一个结果输出到数组中,exec会忽略全局界定符，不会输出所有的情况，只会输出第一个匹配的字符串
+      练习 "ooooo  0 0  ooooooooooo" 匹配 "o  0 0  o"
+   test() 用正则表达式去匹配字符串 假如字符串中存在正则表达式匹配的字符串返回true,没有匹配的返回false
+
+正则的术语和操作符
+    正则表达式：由一些普通字符和元字符组成,  特殊字符有 \ () [] {} ^ $ | ? * +
+
+   * 精确匹配 匹配字符串一些固定值或常量
+       /good/.test("ahjshjdsdsgoodgajkjk"); // true
+       /good/.test("ahjshjdsdsgodogajkjk"); // false
+     精确匹配不能用一些特殊的预定义特殊符号
+         \s
+
+    * 预定义特殊符号
+        \t  /\t/  制表符
+        \n        回车符
+        \b        空格       
+
+    * 字符集
+       一些字符的集合 这些字符放在[]
+
+
+       简单类    
+           [abc] 只要字符串中有a或者b或者c 就认为匹配正则
+           /[abc]/.test("xyz");
+              false
+           /[abc]/.test("xyaz");
+               true
+
+           "asadsakdlsakdkjafeiokkoko".match(/a[xkz]d/g);  // ["akd", "akd"]  
+
+           match test  相反
+
+        范围类：有时匹配太多 并且类型也一样 全部输入 太麻烦
+        
+               [0123456789] [abcd.....z] 
+
+               [0-9]   [a-z]  [A-Z]
+
+               /[0-9]/.test("12300"); // true
+
+               "asadsakdlsakdkjafeiokkoko".match(/[A-Z]/g); // null
+               "asadsakdlsakdkjafeiokkoko".match(/[a-z]/g); // ["a", "s", "a", "d", "s", "a", "k", "d", "l", "s", "a", "k", "d", "k", "j", "a", "f", "e", "i", "o", "k", "k", "o", "k", "o"]
+
+        组合类
+        
+            [a-zA-Z] 可以是小写字母也可以是大写字母      
+
+            "asadsakdlsakdk33jaf6eiokkoko".match(/a[a-zA-Z]d/);
+            "asadsakdlsakdk33jaf6eiokkoko".match(/k[0-9][0-9]j/);
+
+            /b[a-zXHY]c/  =》 b 【小写/X/H/Y】 c
+
+        负向类
+            [^abc] 表示匹配的字符串中不能出现a、b、c三个字符
+
+            /[^abc]/.test("aahjhdyzydb"); // true   
+
+    * 修饰符
+         g 全局匹配  /.../g
+
+         i 对大小写不敏感 /.../i    /[a-z]/i  "A"
+
+    * 边界
+         ^ 开头 不能紧跟与左中括号的后面
+         书写位置 必须写在正则表达式的开头 
+
+         /^hi/.test("hi everybody"); // true
+         /^hi/.test("h i everybody"); // false
+
+         $ 结尾 必须出现在正则表达式的末尾 
+
+            /javascript$/.test("hello javascript"); // true
+            /java$/.test("hello javascript"); //false
+            /javascript$/.test("hello script");// false
+
+         ^和$同时使用，表示既界定开头，也界定结束
+         
+            /^hello\s+javascript$/.test("hello our javascript");// false
+             /^hello\s+javascript$/.test("hello    javascript");// true
+
+          \b 单词边界  查找位于单词的开头或结尾的匹配
+          \B 非.....    ......不处在单词的开头或结尾的匹配
+
+          \w 预定义类 代表单词字符 字母 下划线 数字
+
+          "i love javascript very much".match(/\b\w+\b/g);   
+          // ["i","love","javascript","very","much"]
+
+          "i love javascript very much".match(/\B\w+\B/g);//["ov", "avascrip", "er", "uc"]
+
+    * 预定类
+
+        [^\n\r]
+        \d [0-9] 数字字符
+             eg  /^\d+$/.test("12657 890");// false
+        \D [^0-9] 非数字字符
+        \s 空白字符
+        \S 非空白字符
+        \w 代表单词字符 字母 下划线 数字
+        \W 非单词字符
+
+
+    * 量词
+
+        {n} 出现n次
+
+           /^a{3}bc$/.test("aaabc");//true
+           /^a{3}bc$/.test("aabc"); // false
+           /^a{3}bc$/.test("aaaabc");// false 
+
+         {n,m} 至少出现n次 最多出现m次   
+             /^a{3,6}bc$/
+
+          {n,}  至少出现n次 
+          
+           ? 出现0次或1次  等价于 {0,1}
+
+           * 出现任意次  等价于{0,}
+
+          + {1,} 
+
+
+          /bye{2}/.test("byebye");// false 原因{}对前面一个字符匹配
+    * 分组
+         /(bye){2}/.test("byebye"); // true
+         /(bye){2}/.test("bye");// false
+
+    * 或操作符
+        |
+
+       /a|bcd/.test("a");  // true
+          
+
+       /(ab|cd)ef/ 
+       
+       /0[1-9]|(1|2)[0-9]/   "08" "18" "28"
+
+    * 分组反向引用
+
+           反向引用标示是对正则表达式中的匹配组捕获的子字符串进行编号
+            /^(\w{3})\1$/.test("abcdef");// false abc != def
+            /^(\w{3})\1$/.test("abcabc");// true abc == abc
+
+            反向引用的: 是已经匹配的 具体的字符串中的内容 不是重复匹配一次正则表达式
+
+    * 中文字符集  
+        [\u4e00-\u9fa5]          

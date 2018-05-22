@@ -1,0 +1,64 @@
+DOM
+1 获得节点
+2 修改节点的属性和内容
+3 增加、删除、修改节点
+4 帮我们查找节点关系
+
+	获得节点
+		// 根据id查找元素 全部兼容
+		document.getElementById("box");
+
+        // 根据标签名查找 全部兼容
+        document.getElementsByTagName("p");
+
+        // 根据类名查找元素  不兼容IE6 7 8
+		document.getElementsByClassName("p1");
+
+		// 根据name查找元素  不兼容IE6 7 8
+		document.getElementsByName("para");
+
+		// 查找id为box的所有后代p querySelectorAll()不兼容IE6 7
+		document.querySelectorAll("#box p");
+
+		// 查找id为box的所有后代第一个p 不兼容IE6 7
+		document.querySelector("#box p");
+
+==================节点关系================
+1 childNodes属性------访问子节点(包括标签节点 文本节点 注释节点)
+   父节点.childNodes得到父节点下的子节点
+    
+2 nodeType属性 节点类型
+     标签节点 nodeType返回值1
+     文本节点 。。。。。。9。3
+     注释节点 ..............8
+     Document .............9
+     DTD      .............10
+
+ IE6 7 8 获取子节点没有文本节点，高级浏览器 子节点包含所有的节点
+
+
+ 3 nodeValue-----专门获取或修改文本节点的属性
+
+ 4 parentNode------获取父节点属性
+     语法 子节点.parentNode
+       
+     document.parentNode == null  
+      
+ 5 nextSibling-----下一个亲兄弟 包括注释 文本 标签
+
+
+ 6 previousSibling-----上一个兄弟 是属性
+
+
+
+
+ =================节点操作=================
+ 1 创建节点
+// 1 创建span
+var ospan = document.createElement("span");
+
+
+ 2 追加节点
+// 2 元素追加body的末尾（上DOM树）
+document.body.appendChild(ospan);
+

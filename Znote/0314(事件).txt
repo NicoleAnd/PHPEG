@@ -1,0 +1,71 @@
+事件深入
+1 事件流
+    当你单击某个元素，单击事件不仅仅发生 在这个元素上，也发生在它的父元素上，父元素的父元素....它的祖先元素，甚至到单击整个页面
+
+    事件流  描述页面上各个元素接受事件的顺序
+
+    为描述事件传播顺序，人为规定两个阶段 一个是捕获阶段 一个是冒泡阶段
+
+
+    window ----> document -----> html ----> body ----> div  捕获
+    window <---- document <----- html <---- body <----div   冒泡
+
+    点击页面的某个元素，事件到底在哪个阶段发生 取决于事件监听方法
+
+2 DOM0级事件绑定
+   DOM分等级  0 1 2  3 不同的标准
+   oDiv.onclick = function() {
+	    	 alert("我是div,干嘛碰我?");
+	    }
+    以上就是DOM0级事件绑定方法
+
+    * DOM0级事件绑定方法 只能监听事件冒泡过程
+      对chrome、IE9里面，事件会冒泡到window对象，对IE 6 7 8 只会冒泡到document对象	 
+    
+    * DOM0级事件绑定this代表触发这个事件的元素
+
+    * 对同一个元素进行DOM0级事件绑定 
+          $("box1").onclick = function() {
+	      	  alert("我是box1");
+	      }
+
+	      $("box1").onclick = function() {
+	      	  alert("我也是box1");
+	      }
+
+	      以js代码后出现的为准
+   
+3 DOM2级事件绑定
+    DOM1级对于事件没有改动
+    
+    DOM2级进行新的规范 使用一个方法进行事件绑定
+      addEventListener("click",function() {},true/false)
+
+   * 可以规定监听是捕获或者冒泡阶段，第三个参数为true表示监听捕获阶段，false监听冒泡阶段
+
+    课堂 小测
+       <div class="box1" id="box1">
+	 	 <div class="box2" id="box2">
+	 	     <div class="box3" id="box3">
+	 	
+	         </div>
+	     </div>
+	 </div>
+
+	 box2.addEven...("click",function() {
+          alert(1);
+	 },true); 
+
+	 box1.onclick = function() {
+	    alert(2); // 冒泡阶段
+	 }
+
+	 box2.addEven...("click",function() {
+          alert(3);
+	 },false); // 冒泡阶段
+
+    单击box2 弹出1 3 2 
+
+    * addEventListener() 可以 重复添加相同事件,不会覆盖，都会执行，按照代码出现顺序执行
+
+

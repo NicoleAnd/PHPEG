@@ -1,0 +1,33 @@
+NodeJs诞生和创始人
+创始人  Ryan Dahl
+        PHP   8G内存服务器   服务用户4000个左右，假如想服务更多的人，就要服务器数量，从而成本增加
+
+        chrome浏览器的V8引擎(目前世界上最快的js解析引擎)------>服务器端，开发出了nodeJs
+
+       Node.js不是一门语言，是一个平台,语言仍然是javascript,Node.js平台可以让我们用javascript语言开发服务器程序
+安装 
+
+    官网 http://nodejs.org
+    中文网 http://nodejs.cn 
+
+Node.js基本使用------运行哪个js文件 就node谁
+
+    见01.js
+
+    运行哪个js文件 就node谁,在命令行窗口切换到js文件所在的目录下，用cd命令
+
+    运行js   node 文件
+        cd XXXX   
+        node 01.js
+
+    * nodejs平台没有DOM,所以没有window、document、document.getElementById()....
+
+     支持基础语法 如函数 if  for while等核心语法
+
+Nodejs搭建服务器
+     见02.js
+
+
+     res.end() 参数必须是字符串 此外只能出现一次,并且一定要在最后出现
+
+

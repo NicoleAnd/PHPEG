@@ -68,23 +68,33 @@
 		 
 	</div>
 	<script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+	<!-- 引入模板引擎 -->
+	<script type="text/javascript" src="js/underscore.js"></script>
 	<script type="text/javascript">
+		// 先插入矮的网格
 		window.onload = function(){
 			// 获取所有的网格
 			var $grids = $(".grid");
-			// 循环给每个grid进行定位
+			// 每个格子不一定往自己的序号%3这列插入，看哪列最矮，放置在哪里
+			// 定义数组存储当前三列的总高度
+			var colHeight = [0,0,0];
+			alert(_.indexOf(colHeight,80));
+			// 循环遍历每个小格子
 			$grids.each(function(){
-				// 最终确定left top
-				var sum = 0;
-				// 遍历它上面的所有行的总高度
-				for(var i=$(this).index()-3;i>=0;i-=3){
-					sum += $grids.eq(i).outerHeight()+30;
-				}
-				$(this).css({
-					"left": ($(this).index()%3)*270,
-					"top": sum
+				// 找到最短列是谁
+				var minValue = _.min(colHeight);
+				// 找到最短列所在列数index
+				var minIndex = _.indexOf(colHeight);
+
+				$(this).css(function(){
+					"top":minValue,
+					"left":minIndex*270
 				});
+
+				colHeight[minIndex] += $(this).outerHeight() + 20;
+
 			});
+			
 		}
 	</script>
 </body>

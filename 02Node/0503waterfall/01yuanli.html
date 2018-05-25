@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{padding: 0;margin: 0;}
+		body{background-color: #ccc;}
+		.waterfall{width: 790px;margin: 0 auto;position: relative;background-color: #ccc;}
+		.waterfall div{width: 230px;position: absolute;padding: 10px;border-radius: 14px;background-color: #fff;}
+		.waterfall img{width: 230px;}
+	</style>
+</head>
+<body>
+	<div class="waterfall">
+		<div class="grid">
+			<img src="images/0.png">
+			<p>拉开的解放路数据啊砥砺奋进列宽经典示例开发阶段谁离开房间大幅度发撒发送到</p>
+		</div>
+		<div class="grid">
+			<img src="images/1.png">
+			<p>拉开的解放路数据啊砥砺奋进列宽经典示例开发阶段谁离开房间大幅度发撒发送到</p>
+		</div>
+		<div class="grid">
+			<img src="images/2.png">
+			<p>拉开的解放路数据啊砥砺奋进列宽经典示例开发阶段谁离开房间大幅度发撒发送到</p>
+		</div>
+		<div class="grid">
+			<img src="images/3.png">
+			<p>拉开的解放路数据啊砥砺奋进列宽经典示例开发阶段谁离开房间大幅度发撒发送到</p>
+		</div>
+		 <div class="grid">
+			<img src="images/4.png">
+			<p>拉开的解放路数据啊砥砺奋进列宽经典示例开发阶段谁离开房间大幅度发撒发送到</p>
+		</div>
+		<div class="grid">
+			<img src="images/5.png">
+			<p>拉开的解放路数据啊砥砺奋进列宽经典示例开发阶段谁离开房间大幅度发撒发送到</p>
+		</div>
+		<div class="grid">
+			<img src="images/6.png">
+			<p>拉开的解放路数据啊砥砺奋进列宽经典示例开发阶段谁离开房间大幅度发撒发送到</p>
+		</div>
+		<div class="grid">
+			<img src="images/7.png">
+			<p>拉开的解放路数据啊砥砺奋进列宽经典示例开发阶段谁离开房间大幅度发撒发送到</p>
+		</div>
+		<div class="grid">
+			<img src="images/8.png">
+			<p>拉开的解放路数据啊砥砺奋进列宽经典示例开发阶段谁离开房间大幅度发撒发送到</p>
+		</div>
+		<div class="grid">
+			<img src="images/9.png">
+			<p>拉开的解放路数据啊砥砺奋进列宽经典示例开发阶段谁离开房间大幅度发撒发送到</p>
+		</div>
+		 
+	</div>
+	<script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+	<script type="text/javascript">
+		window.onload = function(){
+			// 获取所有的网格
+			var $grids = $(".grid");
+			// 循环给每个grid进行定位
+			$grids.each(function(){
+				// 最终确定left top
+				var sum = 0;
+				// 遍历它上面的所有行的总高度
+				for(var i=$(this).index()-3;i>=0;i-=3){
+					sum += $grids.eq(i).outerHeight()+30;
+				}
+				//alert(sum);
+				$(this).css({
+					"left": ($(this).index()%3)*270,
+					"top": sum
+				});
+			});
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	    * {padding: 0;margin: 0;}
+	    body {background-color: #ccc;}
+	    .waterfall {width: 790px;margin: 0 auto;position: relative;}
+	    .waterfall div {width: 230px;position: absolute;padding: 10px;border-radius: 14px;background-color: #fff;}
+	    .waterfall  img {width: 230px;}
+	    .loading {margin: 0 auto;width: 400px;text-align: center;font-size: 14px;background-color: gold;color: #fff;line-height: 30px;}
+	</style>
+</head>
+<body>
+	<div class="waterfall" id="waterfall">
+		
+	</div>
+	<div class="loading">
+		   正在加载...
+	</div>
+	<script type="text/template" id="grid_template">
+	    <div class="grid">
+			<img src="<%= imgurl%>" alt="">
+			<p class="title"><%= title%></p>
+			<p class="neirong"><%= content%></p>
+			<p class="author"><%= author%></p>
+		</div>
+	</script>
+	<script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+    <script type="text/javascript" src="js/underscore.js"></script>
+	<script type="text/javascript">
+       // 得到模板字符串
+       var templateString = $("#grid_template").html();
+       // 生成一个数据绑定函数
+       var compile = _.template(templateString);  
+
+       // 得到大盒子
+       var $waterfall = $("#waterfall");
+
+       // 定义数组存储当前三个列的总高度
+	    	var colHeight = [0,0,0];
+
+       var page = 1;
+
+       getJsonandRender(page);
+       function getJsonandRender(page) {
+            // 发起ajax请求
+            $.get("json/json"+page+".txt",function(data) {
+            	// 转为对象
+            	var dataObj = eval("("+data+")");
+
+            	// 没有更多数据
+                if(dataObj.news.length == 0) {
+                    $(".loading").show().html("没有更多的数据");
+                    return;
+                }
+
+                //
+                _.each(dataObj.news,function(dictionary) {
+                	// 谁先加载完 先处理谁
+                	var image = new Image();
+                	image.src = dictionary.imgurl;
+                	// jquery  load事件
+                	$(image).load(function() {
+                		console.log(dictionary.imgurl+"加载完毕");
+                		// 此时图片加载完毕 处理该图片
+                		var domString = compile(dictionary);
+                		// 
+                		var $grid = $(domString);
+                		// 追加
+                		$waterfall.append($grid);
+                		// 找到最短列是谁
+	        	        minValue = _.min(colHeight);
+	        	       // 找到最短列所在列数index
+	        	       minIndex = _.indexOf(colHeight,minValue);
+	        	       $grid.css({
+	        				"top":minValue,
+	        				"left":minIndex*270
+	        		    });
+	        	       colHeight[minIndex] += $grid.outerHeight()+20;
+
+	        	       // 隐藏loading文本
+	        	       $(".loading").hide();
+                	});
+                });
+                lock = true;
+            });
+       } 
+
+       var lock = true;
+       // 监听滚动
+       $(window).scroll(function() {
+            if(!lock) return;
+            var rate = $(window).scrollTop()/($(document).height()-$(window).height());
+            if(rate>=0.7) {
+            	page++;
+            	getJsonandRender(page);
+            	lock = false;
+            }
+
+
+       });
+
+	</script>
+</body>
+</html>

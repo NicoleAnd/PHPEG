@@ -78,15 +78,14 @@
 			// 每个格子不一定往自己的序号%3这列插入，看哪列最矮，放置在哪里
 			// 定义数组存储当前三列的总高度
 			var colHeight = [0,0,0];
-			alert(_.indexOf(colHeight,80));
 			// 循环遍历每个小格子
 			$grids.each(function(){
 				// 找到最短列是谁
 				var minValue = _.min(colHeight);
 				// 找到最短列所在列数index
-				var minIndex = _.indexOf(colHeight);
+				var minIndex = _.indexOf(colHeight,minValue);
 
-				$(this).css(function(){
+				$(this).css({
 					"top":minValue,
 					"left":minIndex*270
 				});

@@ -135,7 +135,9 @@
     $(window).scroll(function() {
         if (!lock) return;
         // 滚动所有高度 - 一屏高度 = 不显示的距离 ===》 被卷的距离 / 不显示的距离
+        //console.log($(window).scrollTop()+";  "+$(document).height()+";   "+$(window).height());
         var rate = $(window).scrollTop() / ($(document).height() - $(window).height());
+        // 到0.7滚动第二个json，请求第二个json
         if (rate >= 0.7) {
             page++;
             getJsonandRender(page);

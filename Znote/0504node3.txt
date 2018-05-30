@@ -3,9 +3,25 @@ Node.js搭建服务器
 http模块
 
 Nodejs提供了很多的模块，手册按模块列出的api
-
 * 搭建最简单的demo
-   // 利用nodejs内置的http模块创建服务器
+==========================
+// 利用nodejs内置的http模块创建服务器
+// 得到http模块
+var http = require("http");
+
+// 创建服务器 用createServer()
+// 回调函数中req代表请求，res代表响应
+var server = http.createServer(function(req,res){
+  res.end("OK");
+});
+
+// 监听端口
+server.listen(4000);
+
+// node 01.js  http://127.0.0.1:4000/
+==========================
+============* 搭建最简单的demo============
+// 利用nodejs内置的http模块创建服务器
 // 得到http模块
 var http = require("http");
 // 创建服务器 用createServer()
@@ -21,28 +37,37 @@ var server = http.createServer(function(req,res) {
 
 // 监听端口  
 server.listen(4000);
+==================END================
 
 * 使用外置页面
 
     我们现在制作一个外面的网页public/mingxing.html
 
     fs模块最重要的api就是readFile
+============* 使用外置页面============
+// 利用nodejs内置的http模块创建服务器
+// 得到http模块
+var http = require("http");
 
-    var http = require("http");
-// 使用fs模块 
+// 使用fs模块（文件系统模块）
 var fs = require("fs");
 
-
-var server = http.createServer(function(req,res) {
-     //res.end("OK");
-     // 需要读取的文件 第一个参数表示URL 必须以./开头 表示从当前js文件出发寻找html文件
-     fs.readFile("./public/mingxing.html",function(err,data) {
-     	  res.end(data);
-     });
-
+// 创建服务器 用createServer()
+// 回调函数中req代表请求，res代表响应
+var server = http.createServer(function(req,res){
+  // res.end("OK");
+  
+  // 需要读取的文件 第一个参数表示URL 必须以./开头 表示从当前js文件出发寻找html文件
+  fs.readFile("./public/mingxing.html",function(err,data){
+    res.end(data);
+  });
 });
 
+// 监听端口
 server.listen(4000);
+
+// node 01.js  http://127.0.0.1:4000/
+==================END================
 
 * 路由(重点)
    01.js这个案例 无论输入什么url 都访问mingxing.html
@@ -52,4 +77,10 @@ server.listen(4000);
 
    顶层路由设计
       * 物理文件层次和URL没有关系
+      * nodejs可以做顶层路由设计，一个页面想叫啥URL就可以叫啥
+      * 用户输入的url可以被路由映射为任何html页面 
+  现在主流  设计有意义的url
+    知乎的url
+      http://www.zhihu.com/people/kou-yun/answers
+
 

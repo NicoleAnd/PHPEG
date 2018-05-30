@@ -90,3 +90,22 @@ server.listen(4000);
       http://www.zhihu.com/asks.php?username=kou-yun
 
 nodejs 不具备天生路由，需要自己设置路由
+
+
+** 模块（重点）
+    1 HTML宿主环境下的多js文件，他们之间的作用域是打通的
+
+    2 require()
+
+
+
+
+
+
+
+
+
+
+
+
+

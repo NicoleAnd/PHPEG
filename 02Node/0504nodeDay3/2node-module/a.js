@@ -1,0 +1,1 @@
+var num = 100; // window.num

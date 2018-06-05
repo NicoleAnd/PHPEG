@@ -1,0 +1,11 @@
+function People(name,sex,age){
+	this.name = name;
+	this.sex = sex;
+	this.age = age;
+}
+
+People.prototype.sayHello = function(){
+	console.log("大家好，我是"+this.name);
+}
+
+exports.People = People;

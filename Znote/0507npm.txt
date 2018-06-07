@@ -1,0 +1,18 @@
+npm
+1  node package management  node包管理器 
+
+     npm既是一个工具也是一个社区(https://www.npmjs.com/)
+
+     npmjs社区是一个模块分享区，我们开发者可以免费自由使用上面的模块，我们也可以开发模块分享到该社区
+
+
+     我们之前装了nodejs,npm是默认安装的
+
+
+     比如某天上司给你分配了一个任务,用户输入一个网址
+         http://127.0.0.1:4000/2345
+
+         页面显示2345对应的二三四五或两千三百四十五元
+
+      此时找模块 找"大哥"   我们发现了nzh包 网址
+         https://www.npmjs.com/package/nzh     

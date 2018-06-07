@@ -12,7 +12,9 @@
 // console.log("矩形周长："+square.zhouchang(10,20));
 
 var People = require("./people.js");
-var p1 = new People.People("BOB","male",25);
+// var p1 = new People.People("BOB","male",25);
+// app.js 直接接收
+var p1 = new People("BOB","male",25);
 p1.sayHello();
 
 // module.exports

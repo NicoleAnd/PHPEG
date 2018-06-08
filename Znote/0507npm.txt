@@ -15,4 +15,6 @@ npm
          页面显示2345对应的二三四五或两千三百四十五元
 
       此时找模块 找"大哥"   我们发现了nzh包 网址
-         https://www.npmjs.com/package/nzh     
+         https://www.npmjs.com/package/nzh  
+
+    	下载 nzh包  使用命令 npm install nzh

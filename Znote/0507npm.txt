@@ -30,12 +30,12 @@ npm
 	 * 把一个数组转成excel表格
 	 		安装 npm init -> npm install node-xlsx
 
-依赖
+2 依赖
 	我们从npm上下载来的 node_modules 文件夹成为依赖
 
 	我们可以用 package.json 文件来管理这些依赖，该文件就是项目的“身份证”
 	我们以后开发项目 第一步 创建项目身份证 使用 npm init
-	
+
 	(如果 node_modules 文件被删除，使用 npm install 能依赖 package.json->dependencies自动安装)
 
 	有了身份证，配置了依赖项
@@ -45,5 +45,18 @@ npm
 	    "solarlunar": "^2.0.2"
 	  }, 即使误删了node_modules文件夹也没关系 我们只需要输入npm install就会安装身份证package.json下所有依赖
 
+	  今后安装依赖的时候 加上 --save后缀，我们身份证会自动更新一个依赖项
+	  npm install solarlunar --save
+	  npm install node-xlsx --save
+
+	  开发一个网站 功能
+	  网址 / 显示一句话 对阿龙想说的话
+	  /qian/1234 显示人民币一千二百三十四元整
+	  /riqi/2010/10/1 显示这一天是农历丁酉年**月**日
+	  /pinyin/张三 显示 zhangsan
 
 
+3 淘宝镜像
+	伟大的淘宝做了一个npm镜像 叫做cnpm
+
+	官网 npm.taobao.org

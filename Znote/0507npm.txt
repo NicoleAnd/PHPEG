@@ -9,7 +9,7 @@ npm
      我们之前装了nodejs,npm是默认安装的
 
 
-     比如某天上司给你分配了一个任务,用户输入一个网址
+     * 比如某天上司给你分配了一个任务,用户输入一个网址
          http://127.0.0.1:4000/2345
 
          页面显示2345对应的二三四五或两千三百四十五元
@@ -18,3 +18,32 @@ npm
          https://www.npmjs.com/package/nzh  
 
     	下载 nzh包  使用命令 npm install nzh
+    	MAC下安装
+	    	npm init
+	    	...
+	    	npm install nzh
+	    找到-》下载-》引用
+
+	 * 此时又收到新任务
+	 		1999年12月12日 转成农历
+	 		安装 npm init -> npm install solarlunar
+	 * 把一个数组转成excel表格
+	 		安装 npm init -> npm install node-xlsx
+
+依赖
+	我们从npm上下载来的 node_modules 文件夹成为依赖
+
+	我们可以用 package.json 文件来管理这些依赖，该文件就是项目的“身份证”
+	我们以后开发项目 第一步 创建项目身份证 使用 npm init
+	
+	(如果 node_modules 文件被删除，使用 npm install 能依赖 package.json->dependencies自动安装)
+
+	有了身份证，配置了依赖项
+	"dependencies": {
+	    "node-xlsx": "^0.12.0",
+	    "nzh": "^1.0.3",
+	    "solarlunar": "^2.0.2"
+	  }, 即使误删了node_modules文件夹也没关系 我们只需要输入npm install就会安装身份证package.json下所有依赖
+
+
+

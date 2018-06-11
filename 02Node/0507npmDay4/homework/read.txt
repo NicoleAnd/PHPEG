@@ -1,0 +1,20 @@
+作业
+	  开发一个网站 功能 （要求：用cnpm下载模块）
+	  网址 / 显示一句话 对阿龙想说的话
+	  /qian/1234 显示人民币一千二百三十四元整
+	  /riqi/2010/10/1 显示这一天是农历丁酉年**月**日
+	  /pinyin/张三 显示 zhangsan
+
+	  作业答题：
+		  安装
+		  sudo cnpm install nzh --save
+		  sudo cnpm install solarlunar --save
+		  sudo cnpm install node-xlsx --save
+		  代码
+
+答案
+DOS		npm init
+		sudo cnpm install nzh --save
+		sudo cnpm install solarlunar --save
+		sudo cnpm install pinyin --save
+文件 	app.js

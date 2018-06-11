@@ -49,14 +49,47 @@ npm
 	  npm install solarlunar --save
 	  npm install node-xlsx --save
 
-	  开发一个网站 功能
+	  作业
+	  开发一个网站 功能 （要求：用cnpm下载模块）
 	  网址 / 显示一句话 对阿龙想说的话
 	  /qian/1234 显示人民币一千二百三十四元整
 	  /riqi/2010/10/1 显示这一天是农历丁酉年**月**日
 	  /pinyin/张三 显示 zhangsan
 
+	  作业答题：
+		  安装
+		  sudo cnpm install nzh --save
+		  sudo cnpm install solarlunar --save
+		  sudo cnpm install node-xlsx --save
+		  代码
 
 3 淘宝镜像
 	伟大的淘宝做了一个npm镜像 叫做cnpm
 
 	官网 npm.taobao.org
+
+	复制以下程序到CMD窗口
+	npm install -g cnpm --registry=https://registry.npm.taobao.org
+	sudo npm install -g cnpm –registry=https://registry.npm.taobao.org –verbose
+
+	以后可以使用 cnpm 代替 npm
+	sudo cnpm install nzh --save
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

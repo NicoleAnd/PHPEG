@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.16.3",
     "nzh": "^1.0.3",
     "pinyin": "^2.8.3",
     "solarlunar": "^2.0.2"

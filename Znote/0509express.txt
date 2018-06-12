@@ -1,0 +1,14 @@
+Express框架
+1 认知一下
+	nodejs与express框架类似于原生js开发和jquery关系
+
+	原生node开发哪些地方使用的不方便
+		1 匹配URL不方便 要写一些正则
+		2 静态页面使用也不方便 fs.readFile(....)
+		3 不能静态化一个文件夹
+		...
+		express 简化 http应用程序开发nodejs
+
+2 sudo cnpm install --save express
+	npm init
+	sudo cnpm install --save express

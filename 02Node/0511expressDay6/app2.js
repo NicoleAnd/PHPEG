@@ -10,4 +10,9 @@ app.get("/api",function(req,res){
 app.post("/",function(req,res){
 	res.send("显示post");
 });
+
+app.delete("/:id",function(req,res){
+	console.log("你希望删除的id为"+req.params.id);
+});
+
 app.listen(5888);

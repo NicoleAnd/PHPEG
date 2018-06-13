@@ -1,4 +1,4 @@
-Express框架
+Express框架 
 1 认知一下
 	nodejs与express框架类似于原生js开发和jquery关系
 
@@ -12,3 +12,91 @@ Express框架
 2 sudo cnpm install --save express
 	npm init
 	sudo cnpm install --save express
+
+
+
+Express框架 		Koa2
+
+1 安装依赖
+
+2 简单的demo
+	/					显示首页
+	/qian/123			显示123
+	/riqi/2010/10/2		2010 10 2
+	/pinyin/文字			文字
+
+3 详解
+	官网 http://www.expressjs.com.cn/
+
+	* 创建app和app监听
+		express程序的基本结构
+			var express = require("express");
+			var app = express(); //函数调用创建一个app对象
+			
+			中间件
+			中间件
+			中间件
+			app.listen(5888);
+
+	* 中间件
+		app.动词("地址",function(req,res){
+
+		});
+		动词表示请求方式，如：get、post等 请求方式26个，必须是小写
+
+		checkout  connect  copy delete get  head lock merge mkactivity mkcol move m-search notify options patch post propfind proppatch purge put report search subscribe trace unlock unsubscribe 
+
+    3.2 中间件的路径自动对比主干部分
+
+    3.3 中间件可以写通配符
+       app.get("/riqi/:nian/:yue/:ri",function(req,res) {
+ res.send("先生，你想转换日期是"+req.params.nian+"年"+req.params.yue+"月"+req.params.ri+"日");
+});
+   	3.4 中间件的顺序很重要
+       见app3.js 想实现除了老班的儿子不能查 其余的都可以
+
+   	3.5 用next()进行放行拦截
+      当一个中间件已经匹配了路径，但是自己不希望单独处理这次请求，可以用next来放行
+
+      见app4.js
+
+
+  	3.6 res.send()做输出 自动加上utf-8
+   
+     res.json() 输出一个json
+
+     res.jsonp() 
+
+     复习 
+         $.ajax({
+            "url":"/?callback=?",
+            "dataType":"jsonp",
+            "success":function(data) {
+
+            } 
+         });  
+
+
+         <script src=>   
+
+         sendFile()  输出一个外置页面 
+
+         res.redirect() 跳转页面 
+
+4 静态化文件夹 
+app.use(express.static("public"));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

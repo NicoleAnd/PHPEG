@@ -46,28 +46,31 @@ Express框架 		Koa2
 
 		checkout  connect  copy delete get  head lock merge mkactivity mkcol move m-search notify options patch post propfind proppatch purge put report search subscribe trace unlock unsubscribe 
 
-    3.2 中间件的路径自动对比主干部分
+    2 中间件的路径自动对比主干部分
 
-    3.3 中间件可以写通配符
-       app.get("/riqi/:nian/:yue/:ri",function(req,res) {
- res.send("先生，你想转换日期是"+req.params.nian+"年"+req.params.yue+"月"+req.params.ri+"日");
-});
-   	3.4 中间件的顺序很重要
+    3 中间件可以写通配符
+		app.get("/riqi/:nian/:yue/:ri",function(req,res) {
+			res.send("先生，你想转换日期是"+req.params.nian+"年"+req.params.yue+"月"+req.params.ri+"日");
+		});
+
+   	4 中间件的顺序很重要
        见app3.js 想实现除了老班的儿子不能查 其余的都可以
 
-   	3.5 用next()进行放行拦截
+   	5 用next()进行放行拦截
       当一个中间件已经匹配了路径，但是自己不希望单独处理这次请求，可以用next来放行
 
       见app4.js
 
 
-  	3.6 res.send()做输出 自动加上utf-8
+  	6 res.send()做输出 自动加上utf-8
    
      res.json() 输出一个json
 
      res.jsonp() 
+     // jsonp 原理：服务器发送数据，通过函数调用传到客户端
 
-     复习 
+     复习 jquery-jsonp
+
          $.ajax({
             "url":"/?callback=?",
             "dataType":"jsonp",
@@ -77,19 +80,20 @@ Express框架 		Koa2
          });  
 
 
-         <script src=>   
-
+         <script src=(url)>   
+         
          sendFile()  输出一个外置页面 
 
          res.redirect() 跳转页面 
 
 4 静态化文件夹 
+
+// 将public文件夹静态化 自动拥有路由 public地址可省略 也连接了index.html
+
 app.use(express.static("public"));
 
-
-
-
-
+// 必须要加public
+app.use("/public",express.static("public"));
 
 
 

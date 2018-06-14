@@ -1,0 +1,22 @@
+复习
+	cnpm init
+	cnpm install --save express
+1 如何获取GET请求
+
+	127.0.0.1:4000/?name=zhangsan&id=1001
+
+	GET请求参数的获得其实就是对url地址的解析，nodeJS有个url内置模块的parse方法会对url地址进行解析
+
+							url.parse(string).query
+                                           |
+           url.parse(string).pathname      |
+                       |                   |
+                       |                   |
+                     ------ -------------------
+http://localhost:8888/start?foo=bar&hello=world
+                                ---       -----
+                                 |          |
+                                 |          |
+              querystring.parse(queryString)["foo"]    |
+                                            |
+                         querystring.parse(queryString)["hello"]

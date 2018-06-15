@@ -23,10 +23,11 @@
 
 		$("button:eq(1)").click(function(){
 			// 发post请求
-			$.post("/",function(data){
+			$.post("/api",{data:1000,id:1},function(data){
 				console.log(data);
 			});
 		});
+
 		$("button:eq(2)").click(function(){
 			// 发post请求
 			// $.delete("/10086",function(data){
@@ -34,9 +35,13 @@
 			// });//错误
 			// 其他写在ajax中才可以
 			$.ajax({
-				"url":"/10086",
+				"url":"/api",
 				"type":"delete",
-				"success":function(){
+				"data":{
+					"age":22,
+					"tel":"13838383838"
+				},
+				"success":function(data){
 					console.log(data);
 				}
 			});

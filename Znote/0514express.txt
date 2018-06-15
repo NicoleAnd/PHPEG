@@ -20,3 +20,36 @@ http://localhost:8888/start?foo=bar&hello=world
               querystring.parse(queryString)["foo"]    |
                                             |
                          querystring.parse(queryString)["hello"]
+
+    也可以， var queryObj = url.parse(req.url,true).query;
+	
+			var foo = queryObj.foo;
+			var hello = queryObj.hello;
+
+
+2 如何获取POST请求参数
+	post请求的参数携带在请求报文的报文体
+	我们使用第三方包 formidable处理这样的报文
+	sudo cnpm install --save formidable
+
+	// 后台处理post请求
+	app.post("/api",function(req,res){
+	// 返回一个对象
+	var form = new formidable.IncomingForm();
+	// 表单域:数据域  文件域
+	form.parse(req,function(err,fields,files){
+		console.log(fields);
+		res.json({"result":1});
+	});
+	});
+
+3 其他请求
+	后端 26个请求中，只有get请求最特殊，通过url后面添加 ?参数 来传递参数,
+	其他的都是通过请求报文传递参数的，formidable能够识别其他25种请求的参数
+	前端 其他用ajax 
+
+
+
+
+
+

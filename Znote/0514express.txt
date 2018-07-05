@@ -77,5 +77,45 @@ http://localhost:8888/start?foo=bar&hello=world
 	修改10001员工年龄为23		127.0.0.1:4000/employee/10001 (patch)        对服务器修改
 	显示所有员工				127.0.0.1:4000/employee (get)				 向服务器要资源，查询
 
+	get请求     一般服务器按需给我们一些数据
+	post请求    一般推给服务器一些数据
+	delete		希望服务器删除东西
+	checkout	希望服务器验证某些东西
+	patch		希望服务器修改现存的数据
+
+MongoDB
+
+1 认识NoSQL
+	之前学的mysql是SQL（structure query language 结构化查询语言）
+
+	SQL数据库特点 每个字段都会限制一个类型
+
+	NoSQL(非结构化数据库Not Only SQL)
+
+	{"id":10001,"name":"小王","age":16,"sex":"男"},
+	{"id":10002,"name":"小张","age":26,"sex":"男"},
+	{"id":10003,"name":"小李","age":22,"sex":"女","tel":13838383838},
+
+
+				优点						缺点
+SQL     适合复杂的查找，查找迅速     限制了字段类型，不容易更改表的形态
+
+
+NoSQL   不限制字段，数据的每一个     不适合复杂的查找、查询不迅速
+		条目（一行/一条记录）可以有
+		不同字段，便于修改表格的形态
+
+2 MongoDB数据库安装
+
+	见API文档 见文档
+
+3 数据库的开机(打开数据库) mongod
+	
+	mongod 表示开启数据库
+	--dbpath 表示设置数据库的存放目录
+
+	假如数据库开机失败，可能没有安装windows补丁 KB2731284
+
+
 
 

@@ -6,6 +6,11 @@
 	127.0.0.1:4000/?name=zhangsan&id=1001
 
 	GET请求参数的获得其实就是对url地址的解析，nodeJS有个url内置模块的parse方法会对url地址进行解析
+	***核心代码
+	var query = url.parse(req.url,true).query;
+	console.log("服务器收到了客户端提交来的数据",query);
+
+
 
 							url.parse(string).query
                                            |
@@ -27,7 +32,10 @@ http://localhost:8888/start?foo=bar&hello=world
 			var hello = queryObj.hello;
 
 
+
+
 2 如何获取POST请求参数
+
 	post请求的参数携带在请求报文的报文体
 	我们使用第三方包 formidable处理这样的报文
 	sudo cnpm install --save formidable
@@ -46,10 +54,28 @@ http://localhost:8888/start?foo=bar&hello=world
 3 其他请求
 	后端 26个请求中，只有get请求最特殊，通过url后面添加 ?参数 来传递参数,
 	其他的都是通过请求报文传递参数的，formidable能够识别其他25种请求的参数
-	前端 其他用ajax 
+	前端 其他用ajax ，同post
+ 	$.get() / $.post() / $.ajax({"type":"delete",…}) 
+	对比参考代码
 
 
+4 RESTful风格路由
+	(REST 风格 URL) 
+	用URL表示操作的资源，用HTTP动词表示何种操作
 
+	不是RESTful风格路由
+
+	增加一个员工股           127.0.0.1:4000/addEmployee.php
+	删除员工号为10003的员工   127.0.0.1:4000/removeEmployee.php?id=10003
+	修改10001员工年龄为23		127.0.0.1:4000/updateEmployee.php?id=10001&age=23
+	显示所有员工				127.0.0.1:4000/listAll.php
+
+	RESTful风格路由
+
+	增加一个员工股           127.0.0.1:4000/employee (post)				 提交表单，增加元素
+	删除员工号为10003的员工   127.0.0.1:4000/employee/10003 (delete)
+	修改10001员工年龄为23		127.0.0.1:4000/employee/10001 (patch)        对服务器修改
+	显示所有员工				127.0.0.1:4000/employee (get)				 向服务器要资源，查询
 
 
 

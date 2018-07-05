@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button>点我发get请求</button>
+
+	<button>点我发post请求</button>
+
+	<button>点我发delete请求</button>
+	
+	<script type="text/javascript" src="js/jquery-1.12.1.min.js" ></script>
+	<script type="text/javascript">
+		$("button:eq(0)").click(function(){
+			// 发get请求
+			$.get("/api?name=张三&age=8&sex=man",function(data){
+				console.log(data);
+			});
+		});
+
+		$("button:eq(1)").click(function(){
+            // 发post请求  数据data
+            $.post("/api",{data:1000,id:1},function(data){
+				console.log(data);
+			});
+		});
+
+		$("button:eq(2)").click(function(){
+            // 发delete请求
+            $.ajax({
+				"url":"/api",
+				"type":"delete",
+				"data":{
+					"age":22,
+					"tel":"13838383838"
+				},
+				"success":function(data){
+					console.log(data);
+				}
+			});
+		});
+	</script>
+</body>
+</html>
